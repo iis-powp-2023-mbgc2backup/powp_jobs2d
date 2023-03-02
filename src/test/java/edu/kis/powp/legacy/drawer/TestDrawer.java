@@ -18,7 +18,7 @@ public class TestDrawer {
 		DrawPanelController controller = new DrawPanelController();
 		DefaultDrawerFrame.getDefaultDrawerFrame().setVisible(true);
 		ILine line = LineFactory.getBasicLine();
-		line.setStartCoordinates(-100, -60);
+		line.setStartCoordinates(-10, -60);
 		line.setEndCoordinates(60, 130);
 		controller.drawLine(line);
 	}
