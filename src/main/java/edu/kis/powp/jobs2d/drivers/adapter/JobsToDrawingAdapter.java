@@ -32,6 +32,6 @@ public class JobsToDrawingAdapter extends DrawPanelController implements Job2dDr
 
 	@Override
 	public String toString() {
-		return "@Q!$!@$!#@$(*#@&Q(%^*#@";
+		return "Adapter configured. Tool is ready to draw.";
 	}
 }
