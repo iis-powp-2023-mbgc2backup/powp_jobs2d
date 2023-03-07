@@ -27,7 +27,7 @@ public class Job2dDriverDrawingInterpreter extends DrawPanelController implement
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
 
-		drawLine(line);
+		DrawerFeature.getDrawerController().drawLine(line);
 	}
 
 	@Override
