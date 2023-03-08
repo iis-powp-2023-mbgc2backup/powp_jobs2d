@@ -27,6 +27,7 @@ public class AddIntoWindowAdapter extends DrawPanelController implements Job2dDr
 		ILine line = LineFactory.getBasicLine();
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
+		setPosition(x, y);
 
 		DrawerFeature.getDrawerController().drawLine(line);
 	}
