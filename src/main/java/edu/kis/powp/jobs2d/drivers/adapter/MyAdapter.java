@@ -11,7 +11,6 @@ import edu.kis.powp.jobs2d.features.DrawerFeature;
  */
 public class MyAdapter extends DrawPanelController implements Job2dDriver {
 	private int startX = 0, startY = 0;
-	DrawerFeature drawerFeature;
 	public MyAdapter() {
 		super();
 	}
