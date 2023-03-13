@@ -29,6 +29,8 @@ public class TestDriver extends DrawPanelController implements Job2dDriver {
 		line.setEndCoordinates(x, y);
 
 		DrawerFeature.getDrawerController().drawLine(line);
+
+		setPosition(x, y);
 	}
 
 	@Override
