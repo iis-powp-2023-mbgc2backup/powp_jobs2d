@@ -28,6 +28,9 @@ public class Job2DToDrawPanelAdapter extends DrawPanelController implements Job2
 		line.setEndCoordinates(x, y);
 
 		drawLine(line);
+
+		this.startX = x;
+		this.startY = y;
 	}
 
 	@Override
