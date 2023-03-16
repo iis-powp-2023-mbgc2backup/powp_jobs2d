@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
-import edu.kis.powp.jobs2d.drivers.adapter.DottedDrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
@@ -44,11 +43,14 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver testDriver = new DrawerAdapter();
-		DriverFeature.addDriver("Buggy Simulator", testDriver);
+		Job2dDriver buggyDriver = new DrawerAdapter("Buggy");
+		DriverFeature.addDriver("Buggy Simulator", buggyDriver);
 
-		Job2dDriver dottedDriver = new DottedDrawerAdapter();
-		DriverFeature.addDriver("Dotted Driver", dottedDriver);
+		Job2dDriver dottedDriver = new DrawerAdapter("Dotted");
+		DriverFeature.addDriver("Dotted Simulator", dottedDriver);
+
+		Job2dDriver specialDriver = new DrawerAdapter("Special");
+		DriverFeature.addDriver("Special Simulator", specialDriver);
 
 		DriverFeature.updateDriverInfo();
 	}
