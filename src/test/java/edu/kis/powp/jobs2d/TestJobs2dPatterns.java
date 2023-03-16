@@ -8,7 +8,9 @@ import java.util.logging.Logger;
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
-import edu.kis.powp.jobs2d.drivers.adapter.DriverToDrawerAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.DriverToDrawerEditableLineAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.DriverToDrawerNormalLineAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.DriverToDrawerSpecialLineAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
@@ -36,8 +38,14 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver testDriver = new DriverToDrawerAdapter(DrawerFeature.getDrawerController());
-		DriverFeature.addDriver("Buggy Simulator", testDriver);
+		Job2dDriver testNormalLineDriver = new DriverToDrawerNormalLineAdapter(DrawerFeature.getDrawerController());
+		DriverFeature.addDriver("Normal line Simulator", testNormalLineDriver);
+
+		Job2dDriver testSpecialLineDriver = new DriverToDrawerSpecialLineAdapter(DrawerFeature.getDrawerController());
+		DriverFeature.addDriver("Special line Simulator", testSpecialLineDriver);
+
+		Job2dDriver testEditableLineDriver = new DriverToDrawerEditableLineAdapter(DrawerFeature.getDrawerController());
+		DriverFeature.addDriver("Editable line Simulator", testEditableLineDriver);
 
 		DriverFeature.updateDriverInfo();
 	}
