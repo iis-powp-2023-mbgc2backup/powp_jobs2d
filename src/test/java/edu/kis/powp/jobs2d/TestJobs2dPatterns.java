@@ -7,10 +7,14 @@ import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.legacy.drawer.shape.line.DottedLine;
+import edu.kis.legacy.drawer.shape.line.SpecialLine;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.Converter;
+import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
+import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListenerOne;
+import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListenerTwo;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 
@@ -23,11 +27,12 @@ public class TestJobs2dPatterns {
 	 * @param application Application context.
 	 */
 	private static void setupPresetTests(Application application) {
-		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
+		SelectTestFigureOptionListenerOne selectTestFigureOptionListener1 = new SelectTestFigureOptionListenerOne(
 				DriverFeature.getDriverManager());
-
-		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
-		application.addTest("Figure Joe 2", selectTestFigureOptionListener);
+		SelectTestFigureOptionListenerTwo selectTestFigureOptionListener2 = new SelectTestFigureOptionListenerTwo(
+				DriverFeature.getDriverManager());
+		application.addTest("Figure Joe 1", selectTestFigureOptionListener1);
+		application.addTest("Figure Joe 2", selectTestFigureOptionListener2);
 	}
 
 	/**
@@ -41,7 +46,14 @@ public class TestJobs2dPatterns {
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
 		Job2dDriver testDriver = new Converter();
-		DriverFeature.addDriver("Buggy Simulator", testDriver);
+		DriverFeature.addDriver("Basic Line Simulator", testDriver);
+
+		Job2dDriver testDriver_2 = new LineDrawerAdapter( new DottedLine());
+		DriverFeature.addDriver("Dotted Line Simulator", testDriver_2);
+
+		Job2dDriver testDriver_3 = new LineDrawerAdapter( new SpecialLine());
+		DriverFeature.addDriver("Special Line Simulator", testDriver_3);
+
 
 		DriverFeature.updateDriverInfo();
 	}
