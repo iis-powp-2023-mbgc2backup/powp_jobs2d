@@ -5,7 +5,7 @@ import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 /**
  * Plotter test.
- * 
+ *
  * @author Dominik
  */
 public class Job2dDriverTest {

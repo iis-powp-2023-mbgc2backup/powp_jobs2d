@@ -10,7 +10,7 @@ public class DrawerFeature {
 
 	/**
 	 * Setup Drawer Plugin and add to application.
-	 * 
+	 *
 	 * @param application Application context.
 	 */
 	public static void setupDrawerPlugin(Application application) {
@@ -25,7 +25,7 @@ public class DrawerFeature {
 
 	/**
 	 * Get controller of application drawing panel.
-	 * 
+	 *
 	 * @return drawPanelController.
 	 */
 	public static DrawPanelController getDrawerController() {
