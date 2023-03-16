@@ -1,9 +1,7 @@
 package edu.kis.powp.jobs2d.drivers.adapter;
 
-import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
-import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 
@@ -26,7 +24,7 @@ public class Job2DriverAdapter implements Job2dDriver {
 	@Override
 	public void operateTo(int x, int y) {
 		ILine line = LineFactory.getBasicLine();
-		line.setStartCoordinates(this.startX, this.startY);
+		line.setStartCoordinates(startX, startY);
 		line.setEndCoordinates(x, y);
 
 		setPosition(x, y);
