@@ -40,13 +40,13 @@ public class TestJobs2dPatterns {
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
 		Job2dDriver testDriver = new Job2dDriverDrawingInterpreter();
-		DriverFeature.addDriver("Buggy Simulator", testDriver);
+		DriverFeature.addDriver("Shape Simulator", testDriver);
 
 		DriverFeature.updateDriverInfo();
 	}
 
 	/**
-	 * Auxiliary routines to enable using Buggy Simulator.
+	 * Auxiliary routines to enable using Shape Simulator.
 	 * 
 	 * @param application Application context.
 	 */
