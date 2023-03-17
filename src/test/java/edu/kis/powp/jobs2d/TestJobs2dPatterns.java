@@ -15,6 +15,8 @@ import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 import edu.kis.powp.jobs2d.Constants;
 
+import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
+
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -43,6 +45,9 @@ public class TestJobs2dPatterns {
 
 		Job2dDriver testDriver = new Job2dDriverDrawingInterpreter(DrawerFeature.getDrawerController());
 		DriverFeature.addDriver("Shape Simulator", testDriver);
+
+		Job2dDriver dottedDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController());
+		DriverFeature.addDriver("Dotted Shape Simulator", dottedDriver);
 
 		DriverFeature.updateDriverInfo();
 	}
