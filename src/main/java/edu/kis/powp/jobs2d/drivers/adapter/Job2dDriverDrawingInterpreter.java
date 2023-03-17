@@ -10,9 +10,11 @@ import edu.kis.powp.jobs2d.Job2dDriver;
  */
 public class Job2dDriverDrawingInterpreter extends DrawPanelController implements Job2dDriver {
 	private int startX = 0, startY = 0;
+	private DrawPanelController drawPanelController;
 
-	public Job2dDriverDrawingInterpreter() {
+	public Job2dDriverDrawingInterpreter(DrawPanelController drawPanelController) {
 		super();
+		this.drawPanelController = drawPanelController;
 	}
 
 	@Override
@@ -29,7 +31,7 @@ public class Job2dDriverDrawingInterpreter extends DrawPanelController implement
 		
 		setPosition(x, y);
 
-		DrawerFeature.getDrawerController().drawLine(line);
+		drawPanelController.drawLine(line);
 	}
 
 	@Override
