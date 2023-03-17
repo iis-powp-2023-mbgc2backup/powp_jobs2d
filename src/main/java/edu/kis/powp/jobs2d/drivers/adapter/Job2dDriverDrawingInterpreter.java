@@ -36,6 +36,6 @@ public class Job2dDriverDrawingInterpreter extends DrawPanelController implement
 
 	@Override
 	public String toString() {
-		return "@Q!$!@$!#@$(*#@&Q(%^*#@";
+		return "Shape Simulator";
 	}
 }
