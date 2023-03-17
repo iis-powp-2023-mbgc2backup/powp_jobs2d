@@ -1,6 +1,6 @@
 package edu.kis.powp.jobs2d;
 
-import java.awt.EventQueue;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,11 +46,14 @@ public class TestJobs2dPatterns {
 		Job2dDriver testDriver = new Job2dDriverDrawingInterpreter(DrawerFeature.getDrawerController());
 		DriverFeature.addDriver("Shape Simulator", testDriver);
 
-		Job2dDriver dottedDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), "Dotted Shape Simulator", 1);
+		Job2dDriver dottedDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), "Dotted Shape Simulator", 2);
 		DriverFeature.addDriver("Dotted Shape Simulator", dottedDriver);
 
-		Job2dDriver specialDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), "Special Shape Simulator", 2);
+		Job2dDriver specialDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), "Special Shape Simulator", 3);
 		DriverFeature.addDriver("Special Shape Simulator", specialDriver);
+
+		Job2dDriver customDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), "Custom Line Shape Simulator", Color.BLUE, 10.0F, true);
+		DriverFeature.addDriver("Custom Line Shape Simulator", customDriver);
 
 		DriverFeature.updateDriverInfo();
 	}
