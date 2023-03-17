@@ -4,10 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import edu.kis.powp.jobs2d.drivers.DriverManager;
+import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 import javax.swing.JMenuItem;
 import edu.kis.powp.jobs2d.Constants;
+
+import edu.kis.powp.jobs2d.drivers.adapter.Job2dDriverToAbstractDriverAdapter;
 
 public class SelectTestFigureOptionListener implements ActionListener {
 
@@ -29,8 +32,12 @@ public class SelectTestFigureOptionListener implements ActionListener {
 		case Constants.figure2:
 			FiguresJoe.figureScript2(driverManager.getCurrentDriver());
 			break;
+		case Constants.figureJane:
+			FiguresJane.figureScript(new Job2dDriverToAbstractDriverAdapter(driverManager.getCurrentDriver()));
+			break;
 		default:
 			FiguresJoe.figureScript1(driverManager.getCurrentDriver());
 		}
+
 	}
 }
