@@ -7,6 +7,7 @@ import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 import javax.swing.JMenuItem;
+import edu.kis.powp.jobs2d.Constants;
 
 public class SelectTestFigureOptionListener implements ActionListener {
 
@@ -22,10 +23,10 @@ public class SelectTestFigureOptionListener implements ActionListener {
 		String action = pressed.getText();
 		switch (action)
 		{
-		case "Figure Joe 1":
+		case Constants.figure1:
 			FiguresJoe.figureScript1(driverManager.getCurrentDriver());
 			break;
-		case "Figure Joe 2":
+		case Constants.figure2:
 			FiguresJoe.figureScript2(driverManager.getCurrentDriver());
 			break;
 		default:
