@@ -10,11 +10,13 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
+import edu.kis.powp.jobs2d.drivers.adapter.AbstractDriverToJob2DAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.Job2DToDrawPanelAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class TestJobs2dPatterns {
@@ -34,6 +36,12 @@ public class TestJobs2dPatterns {
 
 		application.addTest("Figure Joe 2", (ActionEvent e) -> {
 			FiguresJoe.figureScript2(driverManager.getCurrentDriver());
+		});
+
+		final AbstractDriverToJob2DAdapter janeAdapter = new AbstractDriverToJob2DAdapter(driverManager);
+
+		application.addTest("Figure Jane", e -> {
+			FiguresJane.figureScript(janeAdapter);
 		});
 	}
 
