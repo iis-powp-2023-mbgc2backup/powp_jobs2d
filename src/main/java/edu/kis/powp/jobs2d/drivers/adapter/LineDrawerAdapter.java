@@ -10,7 +10,7 @@ import edu.kis.powp.jobs2d.Job2dDriver;
 public class LineDrawerAdapter extends DrawPanelController implements Job2dDriver {
     private int startX = 0, startY = 0;
     private final DrawPanelController drawPanelController;
-    private ILine lineType;
+    private final ILine lineType;
 
     public LineDrawerAdapter(DrawPanelController drawPanelController, ILine lineType) {
         this.drawPanelController = drawPanelController;
