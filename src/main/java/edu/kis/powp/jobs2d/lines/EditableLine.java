@@ -7,8 +7,14 @@ import java.awt.*;
 public class EditableLine extends AbstractLine {
     public EditableLine() {
         this.color = Color.RED;
-        this.thickness = 2.0F;
+        this.thickness = 2.5F;
         this.dotted = false;
+    }
+
+    public EditableLine(Color color, float thickness, boolean dotted) {
+        this.color = color;
+        this.thickness = thickness;
+        this.dotted = dotted;
     }
 
     public void setColor(Color color){

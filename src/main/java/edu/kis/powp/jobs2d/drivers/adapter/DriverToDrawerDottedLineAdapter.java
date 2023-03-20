@@ -6,13 +6,13 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
 
 /**
- * driver adapter to drawer with special line parameters
+ * driver adapter to drawer with dotted line parameters
  */
-public class DriverToDrawerSpecialLineAdapter implements Job2dDriver {
+public class DriverToDrawerDottedLineAdapter implements Job2dDriver {
 	private int startX = 0, startY = 0;
 	private DrawPanelController drawPanelController;
 
-	public DriverToDrawerSpecialLineAdapter(DrawPanelController drawPanelController) {
+	public DriverToDrawerDottedLineAdapter(DrawPanelController drawPanelController) {
 		super();
 		this.drawPanelController = drawPanelController;
 	}
@@ -25,7 +25,7 @@ public class DriverToDrawerSpecialLineAdapter implements Job2dDriver {
 
 	@Override
 	public void operateTo(int x, int y) {
-		ILine line = LineFactory.getSpecialLine();
+		ILine line = LineFactory.getDottedLine();
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
 
@@ -35,6 +35,6 @@ public class DriverToDrawerSpecialLineAdapter implements Job2dDriver {
 
 	@Override
 	public String toString() {
-		return "Special line";
+		return "Dotted line";
 	}
 }

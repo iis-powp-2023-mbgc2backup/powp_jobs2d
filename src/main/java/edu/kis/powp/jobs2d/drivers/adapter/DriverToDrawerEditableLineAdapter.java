@@ -6,8 +6,10 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.lines.EditableLine;
 
+import java.awt.*;
+
 /**
- * driver adapter to drawer with several bugs.
+ * driver adapter to drawer with editable parameters
  */
 public class DriverToDrawerEditableLineAdapter implements Job2dDriver {
 	private int startX = 0, startY = 0;
@@ -27,6 +29,15 @@ public class DriverToDrawerEditableLineAdapter implements Job2dDriver {
 	@Override
 	public void operateTo(int x, int y) {
 		ILine line = new EditableLine();
+		line.setStartCoordinates(this.startX, this.startY);
+		line.setEndCoordinates(x, y);
+
+		this.drawPanelController.drawLine(line);
+		setPosition(x, y);
+	}
+
+	public void operateTo(int x, int y, Color color, float thickness, boolean dotted) {
+		ILine line = new EditableLine(color, thickness, dotted);
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
 
