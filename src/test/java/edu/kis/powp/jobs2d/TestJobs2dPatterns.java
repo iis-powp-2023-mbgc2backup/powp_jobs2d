@@ -8,13 +8,11 @@ import java.util.logging.Logger;
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
-import edu.kis.powp.jobs2d.drivers.adapter.DriverToDrawerDottedLineAdapter;
-import edu.kis.powp.jobs2d.drivers.adapter.DriverToDrawerEditableLineAdapter;
-import edu.kis.powp.jobs2d.drivers.adapter.DriverToDrawerNormalLineAdapter;
-import edu.kis.powp.jobs2d.drivers.adapter.DriverToDrawerSpecialLineAdapter;
+import edu.kis.powp.jobs2d.drivers.adapters.*;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class TestJobs2dPatterns {
@@ -27,6 +25,7 @@ public class TestJobs2dPatterns {
 	private static void setupPresetTests(Application application) {
 		application.addTest("Figure Joe 1", (ActionEvent e) -> FiguresJoe.figureScript1(DriverFeature.getDriverManager().getCurrentDriver()));
 		application.addTest("Figure Joe 2", (ActionEvent e) -> FiguresJoe.figureScript2(DriverFeature.getDriverManager().getCurrentDriver()));
+		application.addTest("Figure Jane 1", (ActionEvent e) -> FiguresJane.figureScript(new AbstractDriverToJob2DAdapter(0, 0, DriverFeature.getDriverManager().getCurrentDriver())));
 	}
 
 	/**
