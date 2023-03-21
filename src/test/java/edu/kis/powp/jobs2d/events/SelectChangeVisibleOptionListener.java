@@ -1,6 +1,6 @@
 package edu.kis.powp.jobs2d.events;
 
-import java.awt.Window;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

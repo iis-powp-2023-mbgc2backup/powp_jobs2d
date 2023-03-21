@@ -1,16 +1,14 @@
 package edu.kis.powp.jobs2d.events;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import edu.kis.powp.jobs2d.Constants;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
+import edu.kis.powp.jobs2d.drivers.adapter.Job2dDriverToAbstractDriverAdapter;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
-import javax.swing.JMenuItem;
-import edu.kis.powp.jobs2d.Constants;
-
-import edu.kis.powp.jobs2d.drivers.adapter.Job2dDriverToAbstractDriverAdapter;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SelectTestFigureOptionListener implements ActionListener {
 

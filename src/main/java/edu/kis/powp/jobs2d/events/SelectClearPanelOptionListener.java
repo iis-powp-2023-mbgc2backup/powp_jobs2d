@@ -1,9 +1,9 @@
 package edu.kis.powp.jobs2d.events;
 
+import edu.kis.powp.jobs2d.features.DrawerFeature;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import edu.kis.powp.jobs2d.features.DrawerFeature;
 
 public class SelectClearPanelOptionListener implements ActionListener {
 	@Override
