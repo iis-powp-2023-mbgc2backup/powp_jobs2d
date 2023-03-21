@@ -7,8 +7,10 @@ import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.events.TestFigure2;
@@ -17,7 +19,7 @@ import edu.kis.powp.jobs2d.features.DriverFeature;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
+        
 	/**
 	 * Setup test concerning preset figures in context.
 	 * 
@@ -28,7 +30,7 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager());
 
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
-		
+                
                 TestFigure2 testFigure2 = new TestFigure2(
                                 DriverFeature.getDriverManager());
                 application.addTest("Figure Joe 2", testFigure2);
@@ -47,6 +49,12 @@ public class TestJobs2dPatterns {
 		Job2dDriver testDriver = new DrawAdapter();
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 
+                Job2dDriver dottedLineDrawerDriver = new LineDrawerAdapter(LineFactory.getDottedLine());
+                DriverFeature.addDriver("DottedLine Simulator", dottedLineDrawerDriver);
+                
+                Job2dDriver specialLineDrawerDriver = new LineDrawerAdapter(LineFactory.getSpecialLine());
+                DriverFeature.addDriver("SpecialLine Simulator", specialLineDrawerDriver);
+                
 		DriverFeature.updateDriverInfo();
 	}
 
@@ -93,7 +101,7 @@ public class TestJobs2dPatterns {
 				setupDrivers(app);
 				setupPresetTests(app);
 				setupLogger(app);
-
+                                
 				app.setVisibility(true);
 			}
 		});
