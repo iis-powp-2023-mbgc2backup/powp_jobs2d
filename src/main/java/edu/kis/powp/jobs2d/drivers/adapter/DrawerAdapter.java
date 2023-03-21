@@ -18,9 +18,6 @@ public class DrawerAdapter extends DrawPanelController implements Job2dDriver {
 		super();
 	}
 
-	public DrawerAdapter(JPanel freePanel) {
-		initialize(freePanel);
-	}
 
 	@Override
 	public void setPosition(int x, int y) {
@@ -35,6 +32,7 @@ public class DrawerAdapter extends DrawPanelController implements Job2dDriver {
 		line.setEndCoordinates(x, y);
 		setPosition(x,y);
 		drawLine(line);
+		DrawerFeature.getDrawerController().drawLine(line);
 	}
 
 	@Override
