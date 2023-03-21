@@ -28,6 +28,7 @@ public class Jobs2DToDrawerAdapter extends DrawPanelController implements Job2dD
 		line.setEndCoordinates(x, y);
 
 		drawLine(line);
+		this.setPosition(x, y);
 	}
 
 	@Override
