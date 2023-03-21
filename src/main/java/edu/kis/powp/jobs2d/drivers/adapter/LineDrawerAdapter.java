@@ -5,11 +5,16 @@ import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
+import edu.kis.powp.jobs2d.line.CustomLine;
+
+import java.awt.*;
 
 public class LineDrawerAdapter extends DrawPanelController implements Job2dDriver {
     private int startX = 0, startY = 0;
 
     private ILine currentLine;
+
+
     public LineDrawerAdapter() {
         super();
         this.currentLine = LineFactory.getBasicLine();
@@ -17,6 +22,10 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
 
     public void setCurrentLine(ILine currentLine) {
         this.currentLine = currentLine;
+    }
+
+    public void customLineCreator(Color color, float thickness, boolean dotted) {
+        this.currentLine = new CustomLine(color,thickness,dotted);
     }
 
     @Override
