@@ -14,6 +14,7 @@ public class Jobs2DToDrawerAdapter extends DrawPanelController implements Job2dD
 	private int startX = 0, startY = 0;
 
 	public Jobs2DToDrawerAdapter(JPanel freePanel) {
+		//add drawpanelcontroller injection
 		super.initialize(freePanel);
 	}
 
