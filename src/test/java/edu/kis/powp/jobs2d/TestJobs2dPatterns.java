@@ -25,7 +25,7 @@ public class TestJobs2dPatterns {
 	private static void setupPresetTests(Application application) {
 		application.addTest("Figure Joe 1", (ActionEvent e) -> FiguresJoe.figureScript1(DriverFeature.getDriverManager().getCurrentDriver()));
 		application.addTest("Figure Joe 2", (ActionEvent e) -> FiguresJoe.figureScript2(DriverFeature.getDriverManager().getCurrentDriver()));
-		application.addTest("Figure Jane 1", (ActionEvent e) -> FiguresJane.figureScript(new AbstractDriverToJob2DAdapter(0, 0, DriverFeature.getDriverManager().getCurrentDriver())));
+		application.addTest("Figure Jane 1", (ActionEvent e) -> FiguresJane.figureScript(new AbstractDriverToJob2DAdapter(DriverFeature.getDriverManager().getCurrentDriver())));
 	}
 
 	/**
