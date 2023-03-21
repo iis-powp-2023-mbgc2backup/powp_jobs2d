@@ -33,6 +33,6 @@ public class Jobs2DToDrawerAdapter extends DrawPanelController implements Job2dD
 
 	@Override
 	public String toString() {
-		return "@Q!$!@$!#@$(*#@&Q(%^*#@";
+		return "BuggySimulator";
 	}
 }
