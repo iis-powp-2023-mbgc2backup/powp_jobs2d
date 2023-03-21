@@ -4,6 +4,7 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
+import edu.kis.powp.jobs2d.features.DrawerFeature;
 
 /**
  * driver adapter to drawer with several bugs.
@@ -22,6 +23,21 @@ public class DriverAdapter extends DrawPanelController implements Job2dDriver {
 	}
 
 	@Override
+	public void drawLine(ILine line)
+	{
+		DrawerFeature.getDrawerController().drawLine(line);
+	}
+	//    public void drawLine(ILine line) {
+	//        try {
+	//            this.getDrawPanelUI().drawLine((ILine)line.clone());
+	//        } catch (CloneNotSupportedException var3) {
+	//            var3.printStackTrace();
+	//        }
+	//
+	//        this.getDrawArea().repaint();
+	//    }
+
+	@Override
 	public void operateTo(int x, int y) {
 		ILine line = LineFactory.getBasicLine();
 		line.setStartCoordinates(this.startX, this.startY);
@@ -33,6 +49,6 @@ public class DriverAdapter extends DrawPanelController implements Job2dDriver {
 
 	@Override
 	public String toString() {
-		return "@Q!$!@$!#@$(*#@&Q(%^*#@";
+		return "Adapter Driver";
 	}
 }
