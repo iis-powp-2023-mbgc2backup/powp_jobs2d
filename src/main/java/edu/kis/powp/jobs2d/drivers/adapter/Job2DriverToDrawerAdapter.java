@@ -15,8 +15,6 @@ public class Job2DriverToDrawerAdapter extends DrawPanelController implements Jo
 
 	public Job2DriverToDrawerAdapter() {
 		super();
-		DefaultDrawerFrame.getDefaultDrawerFrame().setVisible(false);
-
 	}
 
 	@Override
@@ -41,6 +39,6 @@ public class Job2DriverToDrawerAdapter extends DrawPanelController implements Jo
 
 	@Override
 	public String toString() {
-		return "@Q!$!@$!#@$(*#@&Q(%^*#@";
+		return "Job2DriverToDrawerAdapter";
 	}
 }
