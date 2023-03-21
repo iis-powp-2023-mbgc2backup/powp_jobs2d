@@ -27,15 +27,6 @@ public class DriverAdapter extends DrawPanelController implements Job2dDriver {
 	{
 		DrawerFeature.getDrawerController().drawLine(line);
 	}
-	//    public void drawLine(ILine line) {
-	//        try {
-	//            this.getDrawPanelUI().drawLine((ILine)line.clone());
-	//        } catch (CloneNotSupportedException var3) {
-	//            var3.printStackTrace();
-	//        }
-	//
-	//        this.getDrawArea().repaint();
-	//    }
 
 	@Override
 	public void operateTo(int x, int y) {
