@@ -14,6 +14,7 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
 
     private ILine currentLine;
 
+    private DrawPanelController dpc;
 
     public LineDrawerAdapter() {
         super();
@@ -24,9 +25,6 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
         this.currentLine = currentLine;
     }
 
-    public void customLineCreator(Color color, float thickness, boolean dotted) {
-        this.currentLine = new CustomLine(color,thickness,dotted);
-    }
 
     @Override
     public void setPosition(int x, int y) {
