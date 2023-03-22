@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2db5504-d14f-4976-aaa2-90daca8fb83d" name="Changes" comment="" />
+    <list default="true" id="c2db5504-d14f-4976-aaa2-90daca8fb83d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kis/powp/jobs2d/drivers/adapter/MyAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kis/powp/jobs2d/drivers/adapter/MyAdapter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,11 +24,6 @@
       <MavenGeneralSettings>
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="2Mm8vpAsLvU7V0CHw7Oa8nRr9qA" />
@@ -119,6 +117,8 @@
       <updated>1678361638653</updated>
       <workItem from="1678361642324" duration="2243000" />
       <workItem from="1678363959827" duration="745000" />
+      <workItem from="1678364726330" duration="1298000" />
+      <workItem from="1679478961562" duration="300000" />
     </task>
     <servers />
   </component>
