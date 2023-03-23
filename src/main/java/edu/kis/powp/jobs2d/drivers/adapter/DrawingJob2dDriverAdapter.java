@@ -33,6 +33,6 @@ public class DrawingJob2dDriverAdapter extends DrawPanelController implements Jo
 
 	@Override
 	public String toString() {
-		return "@Q!$!@$!#@$(*#@&Q(%^*#@";
+		return "Drawing Simulator";
 	}
 }
