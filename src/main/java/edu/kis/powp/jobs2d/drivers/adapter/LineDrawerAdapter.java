@@ -1,7 +1,5 @@
 package edu.kis.powp.jobs2d.drivers.adapter;
 
-import javax.swing.JPanel;
-
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
@@ -11,8 +9,11 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
     
 	private int startX = 0, startY = 0;
 
-	public LineDrawerAdapter(JPanel freePanel) {
-		super.initialize(freePanel);
+	private final DrawPanelController dpc;
+
+	public LineDrawerAdapter(DrawPanelController dpc) {
+		super();
+		this.dpc = dpc;
 	}
 
 	@Override
