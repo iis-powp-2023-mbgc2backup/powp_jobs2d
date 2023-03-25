@@ -1,6 +1,8 @@
 package edu.kis.powp.jobs2d.drivers.adapter;
 
 import edu.kis.powp.jobs2d.AbstractDriver;
+import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
+import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class FiguresJaneAdapter extends AbstractDriver {
 
@@ -10,6 +12,6 @@ public class FiguresJaneAdapter extends AbstractDriver {
 
     @Override
     public void operateTo(int i, int i1) {
-
+        FiguresJane.figureScript(this);
     }
 }
