@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.legacy.drawer.shape.line.SpecialLine;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.FiguresJaneAdapter;
@@ -50,8 +51,10 @@ public class TestJobs2dPatterns {
 		Job2dDriver testDriver = new DrawerAdapter(DrawerFeature.getDrawerController());
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 
-		Job2dDriver testDriverSpecial = new LineDrawerAdapter();
-		DriverFeature.addDriver("Special Buggy Simulator", testDriverSpecial);
+		LineDrawerAdapter lineDrawerAdapter = new LineDrawerAdapter(DrawerFeature.getDrawerController());
+		lineDrawerAdapter.setCurrentLine(new SpecialLine());
+
+		DriverFeature.addDriver("Special Buggy Simulator", lineDrawerAdapter);
 
 		DriverFeature.updateDriverInfo();
 	}

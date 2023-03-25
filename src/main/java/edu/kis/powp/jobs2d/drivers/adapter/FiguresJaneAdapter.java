@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 
 public class FiguresJaneAdapter extends AbstractDriver implements ActionListener {
 
-    DrawPanelController dpc;
+    private final DrawPanelController dpc;
 
     public FiguresJaneAdapter(int x, int y,DrawPanelController dpc) {
         super(x, y);

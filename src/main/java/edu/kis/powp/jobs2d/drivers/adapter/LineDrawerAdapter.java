@@ -14,11 +14,12 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
 
     private ILine currentLine;
 
-    private DrawPanelController dpc;
+    private final DrawPanelController dpc;
 
-    public LineDrawerAdapter() {
+    public LineDrawerAdapter(DrawPanelController dpc) {
         super();
         this.currentLine = LineFactory.getBasicLine();
+        this.dpc=dpc;
     }
 
     public void setCurrentLine(ILine currentLine) {
@@ -38,7 +39,7 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
         currentLine.setEndCoordinates(x, y);
         setPosition(x,y);
         drawLine(currentLine);
-        DrawerFeature.getDrawerController().drawLine(currentLine);
+        dpc.drawLine(currentLine);
     }
 
     @Override
