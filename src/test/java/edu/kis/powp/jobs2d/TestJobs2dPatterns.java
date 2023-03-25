@@ -30,7 +30,7 @@ public class TestJobs2dPatterns {
 		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
 				DriverFeature.getDriverManager());
 
-		FiguresJaneAdapter figuresJaneAdapter = new FiguresJaneAdapter(0,0);
+		FiguresJaneAdapter figuresJaneAdapter = new FiguresJaneAdapter(0,0, DrawerFeature.getDrawerController());
 
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", e -> FiguresJoe.figureScript2(DriverFeature.getDriverManager().getCurrentDriver()));
