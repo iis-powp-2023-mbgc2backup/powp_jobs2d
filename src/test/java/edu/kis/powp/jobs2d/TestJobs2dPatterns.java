@@ -9,6 +9,7 @@ import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.JobsToDrawingAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener2;
@@ -30,6 +31,9 @@ public class TestJobs2dPatterns {
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", new SelectTestFigureOptionListener2(
 				DriverFeature.getDriverManager()));
+
+		Job2dDriver dottedDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController());
+		DriverFeature.addDriver("Dotted Shapes", dottedDriver);
 	}
 
 	/**
