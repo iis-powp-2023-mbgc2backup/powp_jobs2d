@@ -34,6 +34,6 @@ public class AddIntoWindowAdapter extends DrawPanelController implements Job2dDr
 
 	@Override
 	public String toString() {
-		return "Buggy Simulator";
+		return "Drawing Simulator";
 	}
 }
