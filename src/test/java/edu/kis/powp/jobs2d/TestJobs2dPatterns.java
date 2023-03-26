@@ -2,7 +2,6 @@ package edu.kis.powp.jobs2d;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,7 +30,7 @@ public class TestJobs2dPatterns {
 		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
 				DriverFeature.getDriverManager());
 
-		FiguresJaneAdapter figuresJaneAdapter = new FiguresJaneAdapter(0,0, DrawerFeature.getDrawerController());
+		FiguresJaneAdapter figuresJaneAdapter = new FiguresJaneAdapter(0,0);
 
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", e -> FiguresJoe.figureScript2(DriverFeature.getDriverManager().getCurrentDriver()));
