@@ -7,11 +7,13 @@ import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.jobs2d.drivers.adapter.AbstractDriverAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class TestJobs2dPatterns {
@@ -34,8 +36,12 @@ public class TestJobs2dPatterns {
 			}
 		};
 
+		final AbstractDriverAdapter janeAdapter = new AbstractDriverAdapter(0, 0, DriverFeature.getDriverManager());
+
+
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", selectTestFigureOptionListener1);
+		application.addTest("Figure Jane", e -> { FiguresJane.figureScript(janeAdapter); });
 	}
 
 	/**
