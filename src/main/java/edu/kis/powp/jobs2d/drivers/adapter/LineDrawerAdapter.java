@@ -16,9 +16,11 @@ import edu.kis.powp.jobs2d.features.DrawerFeature;
  */
 public class LineDrawerAdapter extends DrawerFeature implements Job2dDriver {
     private int startX = 0, startY = 0;
+    private LineType lineType;
 
-    public LineDrawerAdapter() {
+    public LineDrawerAdapter(LineType lineType) {
         super();
+        this.lineType = lineType;
     }
     
     @Override
@@ -29,7 +31,18 @@ public class LineDrawerAdapter extends DrawerFeature implements Job2dDriver {
 
     @Override
     public void operateTo(int x, int y) {
-        ILine line = LineFactory.getSpecialLine();
+        ILine line;
+        switch (lineType) {
+            case DOTTED:
+                line = LineFactory.getDottedLine();
+                break;
+            case SPECIAL:
+                line = LineFactory.getSpecialLine();
+                break;
+            default:
+                line = LineFactory.getBasicLine();
+                break;
+        }
         line.setStartCoordinates(this.startX, this.startY);
         line.setEndCoordinates(x, y);
         setPosition(x, y);
