@@ -49,7 +49,7 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver testDriver = new DriverAdapterToDrawer();
+		Job2dDriver testDriver = new DriverAdapterToDrawer(DrawerFeature.getDrawerController());
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
                 Job2dDriver lineDriver = new LineDrawerAdapter();
                 DriverFeature.addDriver("Line Drawer Simulator", lineDriver);
