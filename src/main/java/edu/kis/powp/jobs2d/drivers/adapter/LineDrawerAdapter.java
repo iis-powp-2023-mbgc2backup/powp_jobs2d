@@ -10,7 +10,7 @@ public class LineDrawerAdapter implements Job2dDriver {
     private int startX = 0, startY = 0;
     private ILine line;
 
-    LineDrawerAdapter(ILine line){
+    public LineDrawerAdapter(ILine line){
         this.line = line;
     }
     @Override
