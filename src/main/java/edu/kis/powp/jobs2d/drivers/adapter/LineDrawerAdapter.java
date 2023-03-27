@@ -1,7 +1,6 @@
 package edu.kis.powp.jobs2d.drivers.adapter;
 
 import edu.kis.legacy.drawer.shape.ILine;
-import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 
