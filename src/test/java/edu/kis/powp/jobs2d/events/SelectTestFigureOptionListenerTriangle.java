@@ -1,24 +1,24 @@
 package edu.kis.powp.jobs2d.events;
 
 import edu.kis.powp.command.CreateRectangleCommand;
+import edu.kis.powp.command.CreateTriangleCommand;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
-import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SelectTestFigureOptionListenerRectangle implements ActionListener {
+public class SelectTestFigureOptionListenerTriangle implements ActionListener {
 
 	private DriverManager driverManager;
 
-	public SelectTestFigureOptionListenerRectangle(DriverManager driverManager) {
+	public SelectTestFigureOptionListenerTriangle(DriverManager driverManager) {
 		this.driverManager = driverManager;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		new CreateRectangleCommand(driverManager.getCurrentDriver()).draw();
+		new CreateTriangleCommand(driverManager.getCurrentDriver()).draw();
 	}
 }
 
