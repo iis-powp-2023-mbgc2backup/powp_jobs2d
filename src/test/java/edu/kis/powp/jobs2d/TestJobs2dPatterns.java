@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.jobs2d.commands.ComplexCommand;
+import edu.kis.powp.jobs2d.commands.ShapeFactory;
 import edu.kis.powp.jobs2d.drivers.adapter.AbstractDriverAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
@@ -42,6 +44,15 @@ public class TestJobs2dPatterns {
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", selectTestFigureOptionListener1);
 		application.addTest("Figure Jane", e -> { FiguresJane.figureScript(janeAdapter); });
+		application.addTest("Rectangle", e -> {
+			ComplexCommand commands = ShapeFactory.rectangle(DriverFeature.getDriverManager().getCurrentDriver());
+			commands.execute();
+		});
+
+		application.addTest("Triangle", e -> {
+			ComplexCommand commands = ShapeFactory.triangle(DriverFeature.getDriverManager().getCurrentDriver());
+			commands.execute();
+		});
 	}
 
 	/**
