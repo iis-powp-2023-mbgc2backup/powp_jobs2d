@@ -1,4 +1,4 @@
-package edu.kis.powp.jobs2d.drivers.DriverAdapterToDrawer;
+package edu.kis.powp.jobs2d.drivers.adapter;
 
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
@@ -34,6 +34,6 @@ public class DriverAdapterToDrawer extends DrawPanelController implements Job2dD
 
 	@Override
 	public String toString() {
-		return "@Q!$!@$!#@$(*#@&Q(%^*#@";
+		return "Normal Line Driver";
 	}
 }
