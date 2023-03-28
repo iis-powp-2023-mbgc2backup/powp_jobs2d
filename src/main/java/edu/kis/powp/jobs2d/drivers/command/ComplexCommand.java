@@ -9,6 +9,11 @@ public class ComplexCommand implements DriverCommand{
         this.commands = commands;
     }
 
+    public void append(DriverCommand com)
+    {
+        this.commands.add(com);
+    }
+
     @Override
     public void execute() {
         for(DriverCommand command:commands)
