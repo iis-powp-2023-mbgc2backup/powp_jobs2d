@@ -19,8 +19,9 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
     }
 
 
-    public void setMode(Modes mode) {
+    public Job2dDriver setMode(Modes mode) {
         this.mode = mode;
+        return null;
     }
 
     @Override
