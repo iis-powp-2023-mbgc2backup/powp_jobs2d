@@ -3,6 +3,8 @@ package edu.kis.powp.jobs2d;
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.command.ComplexCommand;
+import edu.kis.powp.command.FigureFactory;
 import edu.kis.powp.jobs2d.drivers.adapter.DriverAdapterToDrawer;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineType;
@@ -30,6 +32,10 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager());
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", e -> FiguresJoe.figureScript2(DriverFeature.getDriverManager().getCurrentDriver()));
+		application.addTest("Circle", e -> {
+			ComplexCommand circle = FigureFactory.getCircle(0, 0, 100);
+			circle.execute(DriverFeature.getDriverManager().getCurrentDriver());
+		});
 	}
 
 	/**
