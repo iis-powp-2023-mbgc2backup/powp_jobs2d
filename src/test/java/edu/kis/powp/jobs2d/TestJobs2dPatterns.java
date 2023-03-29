@@ -46,8 +46,9 @@ public class TestJobs2dPatterns {
 		Job2dDriver testDriver = new Job2dDriverToDrawPanelControllerAdapter(drawPanelController);
 		DriverFeature.addDriver("Basic Simulator", testDriver);
 
-		Job2dDriver lineDriver = new LineDrawerAdapter(drawPanelController, LineFactory.getSpecialLine());
-		DriverFeature.addDriver("Special Simulator", lineDriver);
+		LineDrawerAdapter lineDriver = new LineDrawerAdapter(drawPanelController, LineFactory.getSpecialLine());
+		DriverFeature.addDriver("Typed Line Simulator", lineDriver);
+		setupLineType(application, lineDriver);	// enable switching between line types for lineDriver
 
 		DriverFeature.updateDriverInfo();
 	}
@@ -83,6 +84,19 @@ public class TestJobs2dPatterns {
 	}
 
 	/**
+	 * Setup menu for adjusting line type for Typed Line Simulator
+	 *
+	 * @param application Application context.
+	 * @param lineDrawerAdapter Adapter with special feature to set line type
+	 */
+	private static void setupLineType(Application application, LineDrawerAdapter lineDrawerAdapter) {
+		application.addComponentMenu(LineDrawerAdapter.class, "Line Type", 4);
+		application.addComponentMenuElement(LineDrawerAdapter.class, "Basic", (ActionEvent e) -> lineDrawerAdapter.setLine(LineFactory.getBasicLine()));
+		application.addComponentMenuElement(LineDrawerAdapter.class, "Dotted", (ActionEvent e) -> lineDrawerAdapter.setLine(LineFactory.getDottedLine()));
+		application.addComponentMenuElement(LineDrawerAdapter.class, "Special", (ActionEvent e) -> lineDrawerAdapter.setLine(LineFactory.getSpecialLine()));
+	}
+
+	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -95,7 +109,6 @@ public class TestJobs2dPatterns {
 				setupDrivers(app);
 				setupPresetTests(app);
 				setupLogger(app);
-
 				app.setVisibility(true);
 			}
 		});

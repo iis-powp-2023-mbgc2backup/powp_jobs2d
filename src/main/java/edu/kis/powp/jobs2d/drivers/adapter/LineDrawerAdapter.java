@@ -10,11 +10,15 @@ import edu.kis.powp.jobs2d.Job2dDriver;
 public class LineDrawerAdapter extends DrawPanelController implements Job2dDriver {
     private int startX = 0, startY = 0;
     private final DrawPanelController drawPanelController;
-    private final ILine line;
+    private ILine line;
 
     public LineDrawerAdapter(DrawPanelController drawPanelController, ILine line){
         super();
         this.drawPanelController = drawPanelController;
+        this.line = line;
+    }
+
+    public void setLine(ILine line){
         this.line = line;
     }
     @Override
@@ -33,6 +37,6 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
 
     @Override
     public String toString() {
-        return "Special Simulator";
+        return "Typed Line Simulator";
     }
 }
