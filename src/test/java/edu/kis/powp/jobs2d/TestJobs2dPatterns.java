@@ -2,7 +2,6 @@ package edu.kis.powp.jobs2d;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,7 +18,6 @@ import edu.kis.powp.jobs2d.features.DriverFeature;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	private final static int testNumber = 2;
 
 	/**
 	 * Setup test concerning preset figures in context.
@@ -43,11 +41,13 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver testDriver = new Job2dDriverToDrawPanelControllerAdapter();
-		DriverFeature.addDriver("Buggy Simulator", testDriver);
+		DrawPanelController drawPanelController = DrawerFeature.getDrawerController();
 
-		Job2dDriver lineDriver = new LineDrawerAdapter(LineFactory.getSpecialLine());
-		DriverFeature.addDriver("Simulator", lineDriver);
+		Job2dDriver testDriver = new Job2dDriverToDrawPanelControllerAdapter(drawPanelController);
+		DriverFeature.addDriver("Basic Simulator", testDriver);
+
+		Job2dDriver lineDriver = new LineDrawerAdapter(drawPanelController, LineFactory.getSpecialLine());
+		DriverFeature.addDriver("Special Simulator", lineDriver);
 
 		DriverFeature.updateDriverInfo();
 	}
@@ -90,7 +90,6 @@ public class TestJobs2dPatterns {
 			public void run() {
 				Application app = new Application("2d jobs Visio");
 				DrawerFeature.setupDrawerPlugin(app);
-				//setupDefaultDrawerVisibilityManagement(app);
 
 				DriverFeature.setupDriverPlugin(app);
 				setupDrivers(app);
