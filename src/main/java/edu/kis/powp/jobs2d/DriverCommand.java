@@ -10,5 +10,5 @@ package edu.kis.powp.jobs2d;
  */
 public interface DriverCommand
 {
-    public void execute();
+    public void execute(Job2dDriver driver);
 }
