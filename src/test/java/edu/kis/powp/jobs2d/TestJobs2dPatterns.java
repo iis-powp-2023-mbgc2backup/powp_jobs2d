@@ -9,6 +9,7 @@ import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.command.CommandFactory;
+import edu.kis.powp.jobs2d.command.ComplexCommandGenerator;
 import edu.kis.powp.jobs2d.drivers.adapters.*;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
@@ -27,8 +28,14 @@ public class TestJobs2dPatterns {
 		application.addTest("Figure Joe 1", (ActionEvent e) -> FiguresJoe.figureScript1(DriverFeature.getDriverManager().getCurrentDriver()));
 		application.addTest("Figure Joe 2", (ActionEvent e) -> FiguresJoe.figureScript2(DriverFeature.getDriverManager().getCurrentDriver()));
 		application.addTest("Figure Jane 1", (ActionEvent e) -> FiguresJane.figureScript(new AbstractDriverToJob2DAdapter(DriverFeature.getDriverManager().getCurrentDriver())));
-		application.addTest("Draw Square", (ActionEvent e) -> CommandFactory.getSquareCommandSequence(10, 10, 100).execute((DriverFeature.getDriverManager().getCurrentDriver())));
-		application.addTest("Draw Circle", (ActionEvent e) -> CommandFactory.getCircleCommandSequence(10, 10, 50).execute((DriverFeature.getDriverManager().getCurrentDriver())));
+		application.addTest("Draw Square", (ActionEvent e) -> CommandFactory.getSquareCommandSequence(10, 10, 100).execute(DriverFeature.getDriverManager().getCurrentDriver()));
+		application.addTest("Draw Circle", (ActionEvent e) -> CommandFactory.getCircleCommandSequence(10, 10, 50).execute(DriverFeature.getDriverManager().getCurrentDriver()));
+		application.addTest("Complex command generated from Figure Joe 1", (ActionEvent e) -> {
+			Logger logger = Logger.getLogger("global");
+			ComplexCommandGenerator generator = new ComplexCommandGenerator(DriverFeature.getDriverManager().getCurrentDriver());
+			FiguresJoe.figureScript1(generator);
+			logger.info(generator.getCommands().toString());
+		});
 	}
 
 	/**
