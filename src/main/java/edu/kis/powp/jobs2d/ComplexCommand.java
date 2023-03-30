@@ -20,12 +20,12 @@ public class ComplexCommand implements DriverCommand
         commands = new ArrayList();
     }
     
-    private void addCommand(DriverCommand command)
+    public void addCommand(DriverCommand command)
     {
         commands.add(command);
     }
     
-    private void clearCommands()
+    public void clearCommands()
     {
         commands.clear();
     }
