@@ -10,7 +10,7 @@ import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 public class SelectTestFigureOptionListener implements ActionListener {
 
 	public enum TestCase{
-		FIGURE1, FIGURE2
+		FIGURE1, FIGURE2, CUSTOMSHAPE
 	}
 
 	private final DriverManager driverManager;
