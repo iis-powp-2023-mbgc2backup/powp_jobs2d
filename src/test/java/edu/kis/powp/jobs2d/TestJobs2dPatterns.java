@@ -10,6 +10,9 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.line.DottedLine;
 import edu.kis.legacy.drawer.shape.line.SpecialLine;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.FigureBuilder;
+import edu.kis.powp.jobs2d.command.FigureFactory;
 import edu.kis.powp.jobs2d.drivers.adapter.Converter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
@@ -33,13 +36,55 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager());
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener1);
 		application.addTest("Figure Joe 2", selectTestFigureOptionListener2);
+		application.addTest("Rectangle", e->{
+			DriverCommand command = FigureFactory.getRectangle(DriverFeature.getDriverManager().getCurrentDriver());
+			command.execute();
+		});
+		application.addTest("Triangle", e->{
+			DriverCommand command = FigureFactory.getTriangle(DriverFeature.getDriverManager().getCurrentDriver());
+			command.execute();
+		});
+		application.addTest("Circle", e->{
+			DriverCommand command = FigureFactory.getCircle(DriverFeature.getDriverManager().getCurrentDriver());
+			command.execute();
+		});
+		//do zadania 6
+		application.addTest("figureScript1", e->{
+			FigureBuilder builder = new FigureBuilder(DriverFeature.getDriverManager().getCurrentDriver());
+			DriverCommand triangle = builder.setPosition(-120, -120).
+					operateTo(120, -120).
+					operateTo(120, 120).
+					operateTo(-120, 120).
+					operateTo(-120, -120).
+					operateTo(120, 120).
+					setPosition(120, -120).
+					operateTo(-120, 120).build();
+			triangle.execute();
+		});
+
+		application.addTest("figureScript2", e->{
+			FigureBuilder builder = new FigureBuilder(DriverFeature.getDriverManager().getCurrentDriver());
+			DriverCommand triangle = builder.setPosition(0, 0).
+					operateTo(233, -23).
+					operateTo(24, 90).
+					operateTo(-104, 80).
+					operateTo(11, -22).
+					operateTo(-33, 44).
+					operateTo(-66, -88).
+					operateTo(128, 256).build();
+			triangle.execute();
+		});
+
+
+
+
+
+
+
+
 	}
 
-	/**
-	 * Setup driver manager, and set default driver for application.
-	 *
-	 * @param application Application context.
-	 */
+
 	private static void setupDrivers(Application application) {
 		Job2dDriver loggerDriver = new LoggerDriver();
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
