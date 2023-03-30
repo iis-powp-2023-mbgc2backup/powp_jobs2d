@@ -17,6 +17,15 @@ public class ComplexCommand implements DriverCommand {
 
     @Override
     public void execute(Job2dDriver driver) {
-        commands.forEach(e -> e.execute(driver));
+        commands.forEach(comm -> comm.execute(driver));
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+
+        commands.forEach(comm -> output.append(comm).append('\n'));
+
+        return output.toString();
     }
 }
