@@ -28,6 +28,7 @@ public class TestJobs2dPatterns {
 		application.addTest("Figure Joe 2", (ActionEvent e) -> FiguresJoe.figureScript2(DriverFeature.getDriverManager().getCurrentDriver()));
 		application.addTest("Figure Jane 1", (ActionEvent e) -> FiguresJane.figureScript(new AbstractDriverToJob2DAdapter(DriverFeature.getDriverManager().getCurrentDriver())));
 		application.addTest("Draw Square", (ActionEvent e) -> CommandFactory.getSquareCommandSequence(10, 10, 100).execute((DriverFeature.getDriverManager().getCurrentDriver())));
+		application.addTest("Draw Circle", (ActionEvent e) -> CommandFactory.getCircleCommandSequence(10, 10, 50).execute((DriverFeature.getDriverManager().getCurrentDriver())));
 	}
 
 	/**
