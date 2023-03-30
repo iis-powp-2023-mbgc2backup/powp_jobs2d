@@ -1,28 +1,20 @@
 package edu.kis.powp.command;
 
-import edu.kis.powp.jobs2d.drivers.DriverManager;
-import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.jobs2d.Job2dDriver;
 
 public class SetPositionCommand implements DriverCommand {
-    private int x;
-    private int y;
-    private DriverManager driverManager;
+    private final int x;
+    private final int y;
+    private final Job2dDriver driver;
 
-    public SetPositionCommand(DriverManager driverManager) {
-        this.x = 0;
-        this.y = 0;
-        this.driverManager = driverManager;
-    }
-
-    public void setCoordinates(int x, int y) {
+    public SetPositionCommand(Job2dDriver driver, int x, int y) {
         this.x = x;
         this.y = y;
+        this.driver = driver;
     }
 
-
-    // elastyczny DriverManager
     @Override
     public void execute() {
-        DriverFeature.getDriverManager().getCurrentDriver().setPosition(x, y);
+        driver.setPosition(x, y);
     }
 }
