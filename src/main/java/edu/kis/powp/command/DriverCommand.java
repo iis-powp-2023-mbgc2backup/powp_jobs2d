@@ -1,13 +1,6 @@
 package edu.kis.powp.command;
-import edu.kis.powp.jobs2d.Job2dDriver;
 
 import java.util.ArrayList;
-
-// public interface Job2dDriver {
-//    void setPosition(int var1, int var2);
-//
-//    void operateTo(int var1, int var2);
-//}
 
 
 interface DriverCommand {
