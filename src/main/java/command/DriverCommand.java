@@ -1,5 +1,5 @@
 package command;
 
 public interface DriverCommand {
-	void execute();
+	public void execute();
 }
