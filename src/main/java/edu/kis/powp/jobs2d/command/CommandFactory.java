@@ -6,8 +6,8 @@ public class CommandFactory {
 
         commandList.addCommand(new SetPositionCommand(x, y));
         commandList.addCommand(new OperateToCommand(x + sideLength, y));
-        commandList.addCommand(new OperateToCommand(x + sideLength, y + sideLength));
-        commandList.addCommand(new OperateToCommand(x - sideLength, y + sideLength));
+        commandList.addCommand(new OperateToCommand(x + sideLength, y - sideLength));
+        commandList.addCommand(new OperateToCommand(x, y - sideLength));
         commandList.addCommand(new OperateToCommand(x, y));
 
         return commandList;
