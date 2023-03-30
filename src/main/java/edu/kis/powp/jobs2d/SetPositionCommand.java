@@ -10,26 +10,25 @@ package edu.kis.powp.jobs2d;
  */
 public class SetPositionCommand implements DriverCommand
 {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
+    
+    Job2dDriver driver;
+    
+    SetPositionCommand(int x, int y, Job2dDriver driver)
+    {
+        this.x = x;
+        this.y = y;
+        this.driver = driver;
+    }
     
    @Override
    public void execute()
    {
-       throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSyst
+       driver.setPosition(x, y);
    }
 
-    @Override
-    public void setPosition(int x, int y) 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    @Override
-    public void operateTo(int x, int y) 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
    
    
 }

@@ -13,22 +13,19 @@ public class OperateToCommand implements DriverCommand
     private int x;
     private int y;
     
+    Job2dDriver driver;
+    
+    OperateToCommand(int x, int y, Job2dDriver driver)
+    {
+        this.x = x;
+        this.y = y;
+        this.driver = driver;
+    }
+    
    @Override
    public void execute()
    {
-       throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSyst
+       driver.operateTo(x, y);
    }
-
-    @Override
-    public void setPosition(int x, int y) 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void operateTo(int x, int y) 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
 }
