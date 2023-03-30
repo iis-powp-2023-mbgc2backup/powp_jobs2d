@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import command.ComplexCommand;
+import command.FigureFactory;
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
@@ -30,6 +32,8 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager());
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", actionEvent -> FiguresJoe.figureScript2(	DriverFeature.getDriverManager().getCurrentDriver()));
+
+
 	}
 
 
