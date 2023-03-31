@@ -14,7 +14,7 @@ public class SetPositionCommand implements DriverCommand
     private final int x;
     private final int y;
     
-    SetPositionCommand(int x, int y)
+    public SetPositionCommand(int x, int y)
     {
         this.x = x;
         this.y = y;
