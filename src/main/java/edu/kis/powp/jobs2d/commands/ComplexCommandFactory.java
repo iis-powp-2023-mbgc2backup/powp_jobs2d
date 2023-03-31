@@ -10,7 +10,7 @@ package edu.kis.powp.jobs2d.commands;
  */
 public class ComplexCommandFactory 
 {
-    public ComplexCommand getSquareCommand()
+    public static ComplexCommand getSquareCommand()
     {
         ComplexCommand ret = new ComplexCommand();
         ret.addCommand(new SetPositionCommand(0,0));
@@ -21,7 +21,7 @@ public class ComplexCommandFactory
         return ret;
     }
     
-    public ComplexCommand getTriangleCommand()
+    public static ComplexCommand getTriangleCommand()
     {
         ComplexCommand ret = new ComplexCommand();
         ret.addCommand(new SetPositionCommand(0,0));

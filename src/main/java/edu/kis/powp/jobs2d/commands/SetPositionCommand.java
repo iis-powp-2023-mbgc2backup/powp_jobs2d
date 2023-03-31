@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package edu.kis.powp.jobs2d.commands;
+import edu.kis.powp.jobs2d.Job2dDriver;
 
 /**
  *

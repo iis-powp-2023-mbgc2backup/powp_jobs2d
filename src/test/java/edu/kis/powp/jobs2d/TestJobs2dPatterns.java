@@ -32,6 +32,8 @@ public class TestJobs2dPatterns {
 		application.addTest(Constants.figure1, selectTestFigureOptionListener);
 		application.addTest(Constants.figure2, selectTestFigureOptionListener);
 		application.addTest(Constants.figureJane, selectTestFigureOptionListener);
+		application.addTest(Constants.figureSquare, selectTestFigureOptionListener);
+		application.addTest(Constants.figureTriangle, selectTestFigureOptionListener);
 	}
 
 	/**

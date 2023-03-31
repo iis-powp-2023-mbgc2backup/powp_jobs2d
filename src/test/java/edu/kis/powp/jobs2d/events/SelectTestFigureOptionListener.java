@@ -5,6 +5,7 @@ import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.adapter.Job2dDriverToAbstractDriverAdapter;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
+import edu.kis.powp.jobs2d.commands.ComplexCommandFactory;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -33,6 +34,13 @@ public class SelectTestFigureOptionListener implements ActionListener {
 		case Constants.figureJane:
 			FiguresJane.figureScript(new Job2dDriverToAbstractDriverAdapter(driverManager.getCurrentDriver()));
 			break;
+		case Constants.figureSquare:
+			ComplexCommandFactory.getSquareCommand().execute(driverManager.getCurrentDriver());
+			break;
+		case Constants.figureTriangle:
+			ComplexCommandFactory.getTriangleCommand().execute(driverManager.getCurrentDriver());
+			break;
+
 		default:
 			FiguresJoe.figureScript1(driverManager.getCurrentDriver());
 		}
