@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.command.CommandTests;
 import edu.kis.powp.jobs2d.drivers.adapter.Jobs2DToDrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
@@ -33,6 +34,21 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager(), 2);
 
 		application.addTest("Figure Joe 2", selectTestFigureOptionListener2);
+
+		CommandTests selectTestFigureOptionListener3 = new CommandTests(
+				DriverFeature.getDriverManager(), 1);
+
+		application.addTest("Command figure 1", selectTestFigureOptionListener3);
+
+		CommandTests selectTestFigureOptionListener4 = new CommandTests(
+				DriverFeature.getDriverManager(), 2);
+
+		application.addTest("Complex command figure 1", selectTestFigureOptionListener4);
+
+		CommandTests selectTestFigureOptionListener5 = new CommandTests(
+				DriverFeature.getDriverManager(), 3);
+
+		application.addTest("Complex command figure 2", selectTestFigureOptionListener5);
 	}
 
 	/**
