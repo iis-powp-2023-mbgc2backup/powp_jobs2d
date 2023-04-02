@@ -1,5 +1,6 @@
 package edu.kis.powp.command;
 
-public class DriverCommand {
-    
+@FunctionalInterface
+public interface DriverCommand {
+    void execute();
 }
