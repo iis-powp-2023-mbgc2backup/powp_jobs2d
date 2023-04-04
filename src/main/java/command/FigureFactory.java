@@ -4,7 +4,7 @@ import edu.kis.powp.jobs2d.Job2dDriver;
 
 public class FigureFactory {
 
-	static public ComplexCommand triangle(Job2dDriver driver)
+	static public ComplexCommand triangle()
 	{
 		ComplexCommand command = new ComplexCommand();
 
@@ -15,7 +15,7 @@ public class FigureFactory {
 		return command;
 	}
 
-	static public ComplexCommand square (Job2dDriver driver)
+	static public ComplexCommand square ()
 	{
 		ComplexCommand command = new ComplexCommand();
 

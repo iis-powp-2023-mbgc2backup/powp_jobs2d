@@ -32,8 +32,16 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager());
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", actionEvent -> FiguresJoe.figureScript2(	DriverFeature.getDriverManager().getCurrentDriver()));
-
-
+		application.addTest("Figure Square ", event ->
+		{
+			ComplexCommand command = FigureFactory.square();
+			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
+		});
+		application.addTest("Figure triangle ", event ->
+		{
+			ComplexCommand command = FigureFactory.triangle();
+			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
+		});
 	}
 
 
