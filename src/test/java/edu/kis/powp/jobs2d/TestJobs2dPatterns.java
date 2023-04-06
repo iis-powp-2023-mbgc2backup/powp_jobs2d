@@ -40,7 +40,7 @@ public class TestJobs2dPatterns {
 			ComplexCommand command = ComplexCommandFactory.getCommand("Rectangle");
 			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
 		});
-		application.addTest("Figure triangle ", event ->
+		application.addTest("Figure Triangle ", event ->
 		{
 			ComplexCommand command = ComplexCommandFactory.getCommand("Triangle");
 			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
