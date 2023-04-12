@@ -9,12 +9,8 @@ import edu.kis.powp.jobs2d.features.DriverFeature;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class SelectTestFigureOptionListener implements ActionListener {
-	public enum Figure {
-		FIGURE1,
-		FIGURE2,
-		FIGURE3
-	}
-	public Figure figure;
+	private final String FIGURE1 = "1";
+	private final String FIGURE2 = "2";
 	private DriverManager driverManager;
 
 	public SelectTestFigureOptionListener(DriverManager driverManager) {
@@ -24,9 +20,9 @@ public class SelectTestFigureOptionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command=e.getActionCommand();
-		if (command.contains("1")){
+		if (command.contains(FIGURE1)){
 			FiguresJoe.figureScript1(driverManager.getCurrentDriver());
-		}else if (command.contains("2")){
+		}else if (command.contains(FIGURE2)){
 			FiguresJoe.figureScript2(driverManager.getCurrentDriver());
 		}
 
