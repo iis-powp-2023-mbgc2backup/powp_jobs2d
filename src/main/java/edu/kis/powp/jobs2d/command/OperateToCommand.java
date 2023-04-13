@@ -18,7 +18,7 @@ public class OperateToCommand implements DriverCommand{
         this.y=y;
         this.driver=driver;
     }
-    
+
     @Override
     public void execute()
     {
