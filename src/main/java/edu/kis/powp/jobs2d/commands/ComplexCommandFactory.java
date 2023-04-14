@@ -9,15 +9,13 @@ public class ComplexCommandFactory {
 
     private int startX;
     private int startY;
-    private Job2dDriver driver;
 
-    public ComplexCommandFactory(Job2dDriver driver, int x, int y){
-        this.driver = driver;
+    public ComplexCommandFactory(int x, int y){
         this.startX = x;
         this.startY = y;
     }
 
-    public ComplexCommand createRectangleCommand(int x, int y){
+    public ComplexCommand createRectangleCommand(int x, int y, Job2dDriver driver){
 
         List<DriverCommand> commands = new ArrayList<DriverCommand>();
 
@@ -32,13 +30,14 @@ public class ComplexCommandFactory {
         return rectangleCommand;
     }
 
-    public ComplexCommand createTriangleCommand(int x, int y){
+    public ComplexCommand createTriangleCommand(int x, int y, Job2dDriver driver){
     	
     	List<DriverCommand> commands = new ArrayList<DriverCommand>();
     	
     	commands.add( new SetPositionCommand(startX, startY, driver));
-    	commands.add( new OperateToCommand(startX + x, startY + x, driver));
-    	commands.add( new OperateToCommand(startX + y, startY + y, driver));
+    	commands.add( new OperateToCommand(startX + x, startY, driver));
+    	commands.add( new OperateToCommand(startX, startY + y, driver));
+    	commands.add( new OperateToCommand(startX, startY, driver));
     	
     	ComplexCommand triangleCommand = new ComplexCommand(commands);
     	
