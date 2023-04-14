@@ -7,10 +7,7 @@ import edu.kis.powp.command.CommandFactory;
 import edu.kis.powp.jobs2d.drivers.adapter.Draw2dDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.Modes;
-import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
-import edu.kis.powp.jobs2d.events.SelectSecondTestFigureOptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestRectangle;
+import edu.kis.powp.jobs2d.events.*;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 
@@ -32,13 +29,18 @@ public class TestJobs2dPatterns {
                 DriverFeature.getDriverManager());
         SelectSecondTestFigureOptionListener selectSecondTestFigureOptionListener = new SelectSecondTestFigureOptionListener(
                 DriverFeature.getDriverManager());
-        SelectTestRectangle SelectTestRectangle = new SelectTestRectangle(
+        SelectTestSquare SelectTestSquare = new SelectTestSquare(
                 DriverFeature.getDriverManager());
+        SelectTestTriangle SelectTestTriangle = new SelectTestTriangle(
+                DriverFeature.getDriverManager());
+        SelectTestCircle SelectTestCircle = new SelectTestCircle(
+                DriverFeature.getDriverManager());
+
         application.addTest("Figure Joe 1", selectTestFigureOptionListener);
         application.addTest("Figure Joe 2", selectSecondTestFigureOptionListener);
-        application.addTest("Figure Joe 2", SelectTestRectangle);
-
-
+        application.addTest("Square", SelectTestSquare);
+        application.addTest("Triangle", SelectTestTriangle);
+        application.addTest("Circle", SelectTestCircle);
 
     }
 
