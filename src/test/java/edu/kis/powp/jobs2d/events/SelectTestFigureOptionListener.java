@@ -5,26 +5,27 @@ import java.awt.event.ActionListener;
 
 import edu.kis.powp.factory.ShapeFactory;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
+import edu.kis.powp.jobs2d.enums.FigureType;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class SelectTestFigureOptionListener implements ActionListener {
 
 	private final DriverManager driverManager;
-	private final int figureScriptNumber;	//TODO: Add Enum instead of int
+	private final FigureType figureType;
 
-	public SelectTestFigureOptionListener(DriverManager driverManager, int figureScriptNumber) {
+	public SelectTestFigureOptionListener(DriverManager driverManager, FigureType figureType) {
 		this.driverManager = driverManager;
-		this.figureScriptNumber = figureScriptNumber;
+		this.figureType = figureType;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		ShapeFactory shapeFactory = new ShapeFactory(driverManager.getCurrentDriver());
-		switch(figureScriptNumber){
-			case 1: {FiguresJoe.figureScript1(driverManager.getCurrentDriver()); break;}
-			case 2: {FiguresJoe.figureScript2(driverManager.getCurrentDriver()); break;}
-			case 3: { shapeFactory.getShape("TRIANGLE").draw(); break; }
-			case 4: { shapeFactory.getShape("RECTANGLE").draw(); break; }
+		switch(figureType){
+			case FIGURE_JOE_1: {FiguresJoe.figureScript1(driverManager.getCurrentDriver()); break;}
+			case FIGURE_JOE_2: {FiguresJoe.figureScript2(driverManager.getCurrentDriver()); break;}
+			case FIGURE_TRIANGLE:
+			case FIGURE_RECTANGLE: { shapeFactory.getShape(figureType).draw(); break; }
 			default: break;
 		}
 	}

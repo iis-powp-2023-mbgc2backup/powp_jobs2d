@@ -15,8 +15,8 @@ public class Triangle implements Shape {
     public void draw() {
         ComplexCommand complexCommand =  new ComplexCommand();
         complexCommand.addCommand(new SetPositionCommand(0, -100));
-        complexCommand.addCommand(new OperateToCommand(100, -200));
-        complexCommand.addCommand(new OperateToCommand(-100, -200));
+        complexCommand.addCommand(new OperateToCommand(100, 100));
+        complexCommand.addCommand(new OperateToCommand(-100, 100));
         complexCommand.addCommand(new OperateToCommand(0, -100));
         complexCommand.execute(job2dDriver);
     }

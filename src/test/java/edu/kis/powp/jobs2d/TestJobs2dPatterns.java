@@ -11,6 +11,7 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.Job2dDriverToDrawPanelControllerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
+import edu.kis.powp.jobs2d.enums.FigureType;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
@@ -25,13 +26,13 @@ public class TestJobs2dPatterns {
 	 * @param application Application context.
 	 */
 	private static void setupPresetTests(Application application) {
-		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), 1);
+		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), FigureType.FIGURE_JOE_1);
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
-		SelectTestFigureOptionListener selectTestFigureOptionListener2 = new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), 2);
+		SelectTestFigureOptionListener selectTestFigureOptionListener2 = new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), FigureType.FIGURE_JOE_2);
 		application.addTest("Figure Joe 2", selectTestFigureOptionListener2);
-		SelectTestFigureOptionListener selectTestFigureOptionListener3 = new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), 3);
+		SelectTestFigureOptionListener selectTestFigureOptionListener3 = new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), FigureType.FIGURE_TRIANGLE);
 		application.addTest("Triangle", selectTestFigureOptionListener3);
-		SelectTestFigureOptionListener selectTestFigureOptionListener4 = new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), 4);
+		SelectTestFigureOptionListener selectTestFigureOptionListener4 = new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), FigureType.FIGURE_RECTANGLE);
 		application.addTest("Rectangle", selectTestFigureOptionListener4);
 	}
 
