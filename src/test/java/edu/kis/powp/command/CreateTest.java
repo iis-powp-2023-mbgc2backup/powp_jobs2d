@@ -1,28 +1,44 @@
 package edu.kis.powp.command;
 
+import edu.kis.powp.jobs2d.Job2dDriver;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateTest {
 
-    public List<DriverCommand> createSquareCommand() {
+    public ArrayList<DriverCommand> triangleScript(Job2dDriver driver) {
+        ArrayList<DriverCommand> commands = new ArrayList<>();
+        commands.add(new SetPositionCommand(0, 0, driver));
 
-        List<DriverCommand> list = new ArrayList<DriverCommand>();
-
-        SetPositionCommand setPositionCommand = new SetPositionCommand(0, 0);
-        list.add(setPositionCommand);
-
-        OperateToCommand operateToCommand = new OperateToCommand(10, 0);
-        list.add(operateToCommand);
-
-        OperateToCommand operateToCommand1 = new OperateToCommand(10, 10);
-        list.add(operateToCommand1);
-
-        OperateToCommand operateToCommand2 = new OperateToCommand(0, 10);
-        list.add(operateToCommand2);
-
-        OperateToCommand operateToCommand3 = new OperateToCommand(0, 0);
-        list.add(operateToCommand3);
-        return list;
+        commands.add(new OperateToCommand(200, 0, driver));
+        commands.add(new OperateToCommand(100, 100, driver));
+        commands.add(new OperateToCommand(0, 0, driver));
+        return commands;
     }
+
+    public ArrayList<DriverCommand> squareScript(Job2dDriver driver) {
+        ArrayList<DriverCommand> commands = new ArrayList<>();
+        commands.add(new SetPositionCommand(0, 0, driver));
+        commands.add(new OperateToCommand(0, 200, driver));
+        commands.add(new OperateToCommand(200, 200, driver));
+        commands.add(new OperateToCommand(200, 0, driver));
+        commands.add(new OperateToCommand(0, 0, driver));
+        return commands;
+    }
+
+    public ArrayList<DriverCommand> circleScript(Job2dDriver driver) {
+        ArrayList<DriverCommand> commands = new ArrayList<>();
+        commands.add(new SetPositionCommand(100, 0, driver));
+
+        for (int i = 0; i <= 100; i++) {
+            double angle = 2 * Math.PI * i / 100;
+            int x = (int) (0 + 100 * Math.cos(angle));
+            int y = (int) (0 + 100 * Math.sin(angle));
+            commands.add(new OperateToCommand(x, y, driver));
+        }
+
+        return commands;
+    }
+
 }

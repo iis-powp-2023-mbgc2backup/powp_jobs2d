@@ -9,14 +9,14 @@ public class ComplexCommand implements DriverCommand{
 
     List<DriverCommand> drivers = new ArrayList<DriverCommand>();
 
-    public void setDrivers(DriverCommand driver){
-        drivers.add(driver);
+    public ComplexCommand(List<DriverCommand> commands) {
+        this.drivers = commands;
     }
-
+    
     @Override
-    public void execute(Job2dDriver driver) {
+    public void execute() {
         for (DriverCommand driverCommand:drivers) {
-            driverCommand.execute(driver);
+            driverCommand.execute();
         }
     }
 }
