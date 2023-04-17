@@ -24,6 +24,11 @@ public class SquareFactory {
         cc.append(new OperateToCommand(11,-22));
     }
 
+    public void execute()
+    {
+        this.cc.execute();
+    }
+
 
 
 }
