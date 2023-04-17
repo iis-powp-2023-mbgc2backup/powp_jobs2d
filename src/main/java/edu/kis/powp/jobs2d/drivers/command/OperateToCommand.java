@@ -17,10 +17,11 @@ public class OperateToCommand implements DriverCommand{
 
     private int x,y;
 
-    public OperateToCommand(int xx,int yy)
+    public OperateToCommand(int xx,int yy, Job2dDriver dDriver)
     {
         this.x = xx;
         this.y = yy;
+        this.dDriver = dDriver;
     }
 
 
