@@ -13,7 +13,6 @@ import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
-import edu.kis.powp.jobs2d.features.LineFeature;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 import static java.awt.Color.*;
@@ -45,8 +44,7 @@ public class TestJobs2dPatterns {
 		application.addComponentMenuElement(CustomeLine.class, "blue", (ActionEvent e) -> customeLine.setColor(blue));
 		application.addComponentMenuElement(CustomeLine.class, "red", (ActionEvent e) -> customeLine.setColor(red));
 		application.addComponentMenuElement(CustomeLine.class, "black", (ActionEvent e) -> customeLine.setColor(black));
-		application.addComponentMenuElement(CustomeLine.class, "Dotted", (ActionEvent e) -> customeLine.setDotted(true));
-		application.addComponentMenuElement(CustomeLine.class, "Normal", (ActionEvent e) -> customeLine.setDotted(false));
+		application.addComponentMenuElementWithCheckBox(CustomeLine.class, "Dotted", (ActionEvent e) -> customeLine.setDotted( !customeLine.isDotted() ) ,  false);
 
 	}
 

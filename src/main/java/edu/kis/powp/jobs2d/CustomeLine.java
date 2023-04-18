@@ -10,8 +10,8 @@ public class CustomeLine extends AbstractLine {
     {
         super();
         this.color = Color.black;
-        this.thickness = 1;
-        this.dotted = true;
+        this.thickness = 3;
+        this.dotted = false;
     }
 
     public void setColor( Color color) {
