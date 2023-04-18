@@ -1,0 +1,6 @@
+Odpowiedź 3.2.5
+
+Adapter klasy to wzorzec projektowy,
+który umożliwia współpracę między dwoma klasami o różnych interfejsach poprzez wprowadzenie adaptera, 
+który tłumaczy żądania jednej klasy na żądania drugiej klasy.
+
