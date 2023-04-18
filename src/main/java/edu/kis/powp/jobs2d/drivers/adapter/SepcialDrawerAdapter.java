@@ -8,9 +8,10 @@ import java.awt.*;
 public class SepcialDrawerAdapter extends  DrawerAdapter {
 
 
-    public SepcialDrawerAdapter(DrawPanelController drawPanelController, boolean isDotted , Color color, float thick ) {
+
+    public SepcialDrawerAdapter(DrawPanelController drawPanelController,  CustomeLine customeLine ) {
         super(drawPanelController);
-        this.line = new CustomeLine(color, thick , isDotted );
+        this.line = customeLine;
     }
 
 

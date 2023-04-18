@@ -13,9 +13,10 @@ import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.jobs2d.features.LineFeature;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
-import static java.awt.Color.red;
+import static java.awt.Color.*;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -35,6 +36,21 @@ public class TestJobs2dPatterns {
 
 	}
 
+	private static CustomeLine customeLine = new CustomeLine( );
+
+	private static void setupLine(Application application, CustomeLine customeLine) {
+
+		application.addComponentMenu(CustomeLine.class, "Lines", 0);
+
+		application.addComponentMenuElement(CustomeLine.class, "blue", (ActionEvent e) -> customeLine.setColor(blue));
+		application.addComponentMenuElement(CustomeLine.class, "red", (ActionEvent e) -> customeLine.setColor(red));
+		application.addComponentMenuElement(CustomeLine.class, "black", (ActionEvent e) -> customeLine.setColor(black));
+		application.addComponentMenuElement(CustomeLine.class, "Dotted", (ActionEvent e) -> customeLine.setDotted(true));
+		application.addComponentMenuElement(CustomeLine.class, "Normal", (ActionEvent e) -> customeLine.setDotted(false));
+
+	}
+
+
 	/**
 	 * Setup driver manager, and set default driver for application.
 	 * 
@@ -48,15 +64,12 @@ public class TestJobs2dPatterns {
 		Job2dDriver testDriver = new DrawerAdapter(DrawerFeature.getDrawerController() ) ;
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 
-		Job2dDriver testLineDriver = new SepcialDrawerAdapter(DrawerFeature.getDrawerController() , false , red  , 3.2F  );
+		Job2dDriver testLineDriver = new SepcialDrawerAdapter(DrawerFeature.getDrawerController()  , customeLine  );
 		DriverFeature.addDriver("Special Line Simulator", testLineDriver);
-		DriverFeature.updateDriverInfo();
-
-		Job2dDriver testDottedDriver = new SepcialDrawerAdapter(DrawerFeature.getDrawerController() ,  true , red , 1.2F  );
-		DriverFeature.addDriver("Dotted Line Simulator", testDottedDriver);
-		DriverFeature.updateDriverInfo();
 
 		DriverFeature.updateDriverInfo();
+
+
 	}
 
 	/**
@@ -95,13 +108,20 @@ public class TestJobs2dPatterns {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+
+
 				Application app = new Application("2d jobs Visio");
 				DrawerFeature.setupDrawerPlugin(app);
 				setupDefaultDrawerVisibilityManagement(app);
 
 				DriverFeature.setupDriverPlugin(app);
+
 				setupDrivers(app);
+
+				setupLine(app ,customeLine );
+
 				setupPresetTests(app);
+
 				setupLogger(app);
 
 				app.setVisibility(true);

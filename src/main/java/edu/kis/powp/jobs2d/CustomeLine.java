@@ -6,11 +6,24 @@ import java.awt.*;
 
 public class CustomeLine extends AbstractLine {
 
-    public CustomeLine(Color color, float thickness, boolean dotted)
+    public CustomeLine()
     {
         super();
-        this.color = color;
-        this.thickness = thickness;
-        this.dotted = dotted;
+        this.color = Color.black;
+        this.thickness = 1;
+        this.dotted = true;
     }
+
+    public void setColor( Color color) {
+        this.color = color;
+    }
+
+    public void setDotted( boolean isDotted) {
+        this.dotted = isDotted;
+    }
+
+    public void setThick( float thick) {
+        this.thickness = thick;
+    }
+
 }
