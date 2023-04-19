@@ -2,6 +2,7 @@ package edu.kis.powp.jobs2d;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,6 +10,8 @@ import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.PrimitivesCommandFactory;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.adapter.AbstractDriverToJob2DAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.Job2DToDrawPanelAdapter;
@@ -42,6 +45,31 @@ public class TestJobs2dPatterns {
 
 		application.addTest("Figure Jane", e -> {
 			FiguresJane.figureScript(janeAdapter);
+		});
+
+		application.addTest("Primitives: Circle ", new ActionListener() {
+			private int radius = 5;
+			private int segments = 3;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DriverCommand cmd = PrimitivesCommandFactory.createCircle(0, 0, radius, segments);
+				radius += 10;
+				segments += 1;
+
+				cmd.execute(driverManager.getCurrentDriver());
+			}
+		});
+
+		application.addTest("Primitives: Rectangle ", new ActionListener() {
+			private int pos = 5;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DriverCommand cmd = PrimitivesCommandFactory.createRectangle(pos, pos, 50, 30);
+				pos += 10;
+				cmd.execute(driverManager.getCurrentDriver());
+			}
 		});
 	}
 
