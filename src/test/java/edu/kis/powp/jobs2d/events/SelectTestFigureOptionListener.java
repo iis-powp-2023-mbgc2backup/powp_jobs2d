@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import edu.kis.powp.command.ComplexCommand;
+import edu.kis.powp.command.FigureFactory;
 import edu.kis.powp.command.OperateToCommand;
 import edu.kis.powp.command.SetPositionCommand;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
@@ -11,7 +12,7 @@ import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class SelectTestFigureOptionListener implements ActionListener {
 
-	private DriverManager driverManager;
+	private final DriverManager driverManager;
 
 	public SelectTestFigureOptionListener(DriverManager driverManager) {
 		this.driverManager = driverManager;
@@ -30,6 +31,16 @@ public class SelectTestFigureOptionListener implements ActionListener {
 				complexCommand.addCommand(new OperateToCommand(120, -120, driverManager.getCurrentDriver()));
 				complexCommand.addCommand(new OperateToCommand(120, 120, driverManager.getCurrentDriver()));
 				complexCommand.execute();
+			}
+			case "Triangle Factory" -> {
+				FigureFactory factory = new FigureFactory(driverManager, 0, 0);
+				ComplexCommand triange = factory.createTriangle(120,0, 0, 120);
+				triange.execute();
+			}
+			case "Rectangle Factory" -> {
+				FigureFactory factory = new FigureFactory(driverManager, 0, 0);
+				ComplexCommand rectangle = factory.createRectangle(150, 100);
+				rectangle.execute();
 			}
 		}
 	}
