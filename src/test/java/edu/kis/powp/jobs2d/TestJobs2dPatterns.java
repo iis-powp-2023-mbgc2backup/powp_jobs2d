@@ -36,6 +36,7 @@ public class TestJobs2dPatterns {
 		application.addTest("Figure Jane", e -> FiguresJane.figureScript(new JaneDrawerAdapter(0, 0, driver)));
 		application.addTest("Square", (ActionEvent e) -> CommandFactory.squareSequence(0, 0, 200).execute(driver.getCurrentDriver()));
 		application.addTest("Rectangle", (ActionEvent e) -> CommandFactory.rectangleSequence(0, 0, 100, 200).execute(driver.getCurrentDriver()));
+		application.addTest("Triangle", (ActionEvent e) -> CommandFactory.triangleSequence(0, 0, 100, 200).execute(driver.getCurrentDriver()));
 	}
 
 	/**

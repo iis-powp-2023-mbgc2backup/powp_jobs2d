@@ -9,6 +9,17 @@ public class CommandFactory {
         return rectangleOrSquare(x, y, height, width);
     }
 
+    public static ComplexCommand triangleSequence(int x, int y, int height, int width) {
+        ComplexCommand commandList = new ComplexCommand();
+
+        commandList.addCommand(new SetPositionCommand(x, y));
+        commandList.addCommand(new OperateToCommand(x + width, y));
+        commandList.addCommand(new OperateToCommand(x + width, y + height));
+        commandList.addCommand(new OperateToCommand(x, y));
+
+        return commandList;
+    }
+
     private static ComplexCommand rectangleOrSquare(int x, int y, int height, int width) {
         ComplexCommand commandList = new ComplexCommand();
 
