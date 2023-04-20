@@ -5,8 +5,6 @@ import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.SelectDriverMenuOptionListener;
 
-import javax.sound.sampled.Line;
-
 public class LineFeature {
 
     private static final DriverManager driverManager = new DriverManager();
