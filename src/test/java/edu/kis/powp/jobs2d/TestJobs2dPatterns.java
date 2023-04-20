@@ -27,6 +27,8 @@ public class TestJobs2dPatterns {
 	private static void setupPresetTests(Application application) {
 		application.addTest("Figure Joe 1", new SelectTestFigureOptionListener(DriverFeature.getDriverManager(),1));
 		application.addTest("Figure Joe 2", new SelectTestFigureOptionListener(DriverFeature.getDriverManager(),2));
+		application.addTest("Rectangle", new SelectTestFigureOptionListener(DriverFeature.getDriverManager(),3));
+		application.addTest("Triangle", new SelectTestFigureOptionListener(DriverFeature.getDriverManager(),4));
 	}
 
 	/**
