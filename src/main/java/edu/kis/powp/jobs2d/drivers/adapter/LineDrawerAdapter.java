@@ -14,7 +14,7 @@ public class LineDrawerAdapter  implements Job2dDriver {
 	private int startY = 0;
 	private final DrawPanelController drawPanelController;
 
-	ILine line;
+	private final ILine line;
 
 	public LineDrawerAdapter(DrawPanelController drawPanelController) {
 		super();
@@ -38,7 +38,7 @@ public class LineDrawerAdapter  implements Job2dDriver {
 	public void operateTo(int x, int y) {
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
-		this.setPosition(x,y);
+		setPosition(x,y);
 		this.drawPanelController.drawLine(line);
 	}
 
