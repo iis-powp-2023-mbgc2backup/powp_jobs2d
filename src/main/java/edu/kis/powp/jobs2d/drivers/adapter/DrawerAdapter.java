@@ -3,6 +3,7 @@ package edu.kis.powp.jobs2d.drivers.adapter;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
+import edu.kis.powp.jobs2d.CustomeLine;
 import edu.kis.powp.jobs2d.Job2dDriver;
 
 /**
@@ -19,6 +20,12 @@ public class DrawerAdapter extends DrawPanelController implements Job2dDriver {
 		super();
 		this.drawPanelController = drawPanelController;
 		this.line = LineFactory.getBasicLine();
+	}
+
+	public DrawerAdapter(DrawPanelController drawPanelController,  CustomeLine customeLine ) {
+		super();
+		this.line = customeLine;
+		this.drawPanelController = drawPanelController;
 	}
 
 	@Override

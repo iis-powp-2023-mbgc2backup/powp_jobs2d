@@ -8,13 +8,10 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawerAdapter;
-import edu.kis.powp.jobs2d.drivers.adapter.SepcialDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
-import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
-import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 import static java.awt.Color.*;
 
@@ -36,16 +33,16 @@ public class TestJobs2dPatterns {
 
 	}
 
-	private static CustomeLine customeLine = new CustomeLine( );
+	private static final CustomeLine customeLine = new CustomeLine( );
 
-	private static void setupLine(Application application, CustomeLine customeLine) {
+	private static void setupLine(Application application) {
 
 		application.addComponentMenu(CustomeLine.class, "Lines", 0);
 
-		application.addComponentMenuElement(CustomeLine.class, "blue", (ActionEvent e) -> customeLine.setColor(blue));
-		application.addComponentMenuElement(CustomeLine.class, "red", (ActionEvent e) -> customeLine.setColor(red));
-		application.addComponentMenuElement(CustomeLine.class, "black", (ActionEvent e) -> customeLine.setColor(black));
-		application.addComponentMenuElementWithCheckBox(CustomeLine.class, "Dotted", (ActionEvent e) -> customeLine.setDotted( !customeLine.isDotted() ) ,  false);
+		application.addComponentMenuElement(CustomeLine.class, "blue", (ActionEvent e) -> TestJobs2dPatterns.customeLine.setColor(blue));
+		application.addComponentMenuElement(CustomeLine.class, "red", (ActionEvent e) -> TestJobs2dPatterns.customeLine.setColor(red));
+		application.addComponentMenuElement(CustomeLine.class, "black", (ActionEvent e) -> TestJobs2dPatterns.customeLine.setColor(black));
+		application.addComponentMenuElementWithCheckBox(CustomeLine.class, "Dotted", (ActionEvent e) -> TestJobs2dPatterns.customeLine.setDotted( !TestJobs2dPatterns.customeLine.isDotted() ) ,  false);
 
 	}
 
@@ -63,7 +60,7 @@ public class TestJobs2dPatterns {
 		Job2dDriver testDriver = new DrawerAdapter(DrawerFeature.getDrawerController() ) ;
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 
-		Job2dDriver testLineDriver = new SepcialDrawerAdapter(DrawerFeature.getDrawerController()  , customeLine  );
+		Job2dDriver testLineDriver = new DrawerAdapter(DrawerFeature.getDrawerController()  , customeLine  );
 		DriverFeature.addDriver("Special Line Simulator", testLineDriver);
 
 		DriverFeature.updateDriverInfo();
@@ -105,26 +102,24 @@ public class TestJobs2dPatterns {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+		EventQueue.invokeLater(() -> {
 
 
-				Application app = new Application("2d jobs Visio");
-				DrawerFeature.setupDrawerPlugin(app);
-				setupDefaultDrawerVisibilityManagement(app);
+			Application app = new Application("2d jobs Visio");
+			DrawerFeature.setupDrawerPlugin(app);
+			setupDefaultDrawerVisibilityManagement(app);
 
-				DriverFeature.setupDriverPlugin(app);
+			DriverFeature.setupDriverPlugin(app);
 
-				setupDrivers(app);
+			setupDrivers(app);
 
-				setupLine(app ,customeLine );
+			setupLine(app);
 
-				setupPresetTests(app);
+			setupPresetTests(app);
 
-				setupLogger(app);
+			setupLogger(app);
 
-				app.setVisibility(true);
-			}
+			app.setVisibility(true);
 		});
 	}
 
