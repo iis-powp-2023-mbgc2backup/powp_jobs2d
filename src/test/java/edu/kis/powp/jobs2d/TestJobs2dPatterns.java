@@ -1,18 +1,20 @@
 package edu.kis.powp.jobs2d;
 
-import java.awt.EventQueue;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.powp.appbase.Application;
-import edu.kis.powp.jobs2d.drivers.adapter.MyAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.AbstractDriverAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.DrawerAdapterToDriver;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+
+import static java.awt.Color.*;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -24,10 +26,32 @@ public class TestJobs2dPatterns {
 	 */
 	private static void setupPresetTests(Application application) {
 		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager());
-
+				DriverFeature.getDriverManager() , TestFigureType.FIGURE_JOE_1);
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
+
+		 selectTestFigureOptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager() , TestFigureType.FIGURE_JOE_2);
+		application.addTest("Figure Joe 2", selectTestFigureOptionListener);
+
+		 selectTestFigureOptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager() , TestFigureType.FIGURE_JANE);
+		application.addTest("Figure Jane",  selectTestFigureOptionListener);
+
 	}
+
+	private static final CustomeLine customeLine = new CustomeLine( );
+
+	private static void setupLine(Application application) {
+
+		application.addComponentMenu(CustomeLine.class, "Lines", 0);
+
+		application.addComponentMenuElement(CustomeLine.class, "blue", (ActionEvent e) -> TestJobs2dPatterns.customeLine.setColor(blue));
+		application.addComponentMenuElement(CustomeLine.class, "red", (ActionEvent e) -> TestJobs2dPatterns.customeLine.setColor(red));
+		application.addComponentMenuElement(CustomeLine.class, "black", (ActionEvent e) -> TestJobs2dPatterns.customeLine.setColor(black));
+		application.addComponentMenuElementWithCheckBox(CustomeLine.class, "Dotted", (ActionEvent e) -> TestJobs2dPatterns.customeLine.setDotted( !TestJobs2dPatterns.customeLine.isDotted() ) ,  false);
+
+	}
+
 
 	/**
 	 * Setup driver manager, and set default driver for application.
@@ -39,10 +63,17 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver testDriver = new MyAdapter();
+		Job2dDriver testDriver = new DrawerAdapterToDriver(DrawerFeature.getDrawerController() ) ;
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 
+		Job2dDriver testLineDriver = new DrawerAdapterToDriver(DrawerFeature.getDrawerController()  , customeLine  );
+		DriverFeature.addDriver("Special Line Simulator", testLineDriver);
+
+		Job2dDriver abstractDriver = new AbstractDriverAdapter(0,0 );
+		DriverFeature.addDriver("Abstract Simulator", abstractDriver);
+
 		DriverFeature.updateDriverInfo();
+
 	}
 
 	/**
@@ -54,7 +85,7 @@ public class TestJobs2dPatterns {
 		DefaultDrawerFrame defaultDrawerWindow = DefaultDrawerFrame.getDefaultDrawerFrame();
 		application.addComponentMenuElementWithCheckBox(DrawPanelController.class, "Default Drawer Visibility",
 				new SelectChangeVisibleOptionListener(defaultDrawerWindow), true);
-		defaultDrawerWindow.setVisible(true);
+		defaultDrawerWindow.setVisible(false);
 	}
 
 	/**
@@ -79,19 +110,24 @@ public class TestJobs2dPatterns {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				Application app = new Application("2d jobs Visio");
-				DrawerFeature.setupDrawerPlugin(app);
-				setupDefaultDrawerVisibilityManagement(app);
+		EventQueue.invokeLater(() -> {
 
-				DriverFeature.setupDriverPlugin(app);
-				setupDrivers(app);
-				setupPresetTests(app);
-				setupLogger(app);
 
-				app.setVisibility(true);
-			}
+			Application app = new Application("2d jobs Visio");
+			DrawerFeature.setupDrawerPlugin(app);
+			setupDefaultDrawerVisibilityManagement(app);
+
+			DriverFeature.setupDriverPlugin(app);
+
+			setupDrivers(app);
+
+			setupLine(app);
+
+			setupPresetTests(app);
+
+			setupLogger(app);
+
+			app.setVisibility(true);
 		});
 	}
 
