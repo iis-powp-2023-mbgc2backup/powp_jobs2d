@@ -18,7 +18,7 @@ public class SelectFigureCircle implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         CreateTest createTest = new CreateTest();
-        ComplexCommand complexCommand = new ComplexCommand(createTest.circleScript(driverManager.getCurrentDriver()));
+        ComplexCommand complexCommand = createTest.circleScript(driverManager.getCurrentDriver());
         complexCommand.execute();
     }
 }

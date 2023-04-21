@@ -18,7 +18,7 @@ public class SelectFigureTriangle implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         CreateTest createTest = new CreateTest();
-        ComplexCommand complexCommand = new ComplexCommand(createTest.triangleScript(driverManager.getCurrentDriver()));
+        ComplexCommand complexCommand = createTest.triangleScript(driverManager.getCurrentDriver());
         complexCommand.execute();
     }
 }

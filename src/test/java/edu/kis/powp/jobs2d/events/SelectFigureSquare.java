@@ -18,7 +18,7 @@ public class SelectFigureSquare implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         CreateTest createTest = new CreateTest();
-        ComplexCommand complexCommand = new ComplexCommand(createTest.squareScript(driverManager.getCurrentDriver()));
+        ComplexCommand complexCommand = createTest.squareScript(driverManager.getCurrentDriver());
         complexCommand.execute();
     }
 }
