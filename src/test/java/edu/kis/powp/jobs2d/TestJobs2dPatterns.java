@@ -2,12 +2,19 @@ package edu.kis.powp.jobs2d;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.jobs2d.command.ComplexCommand;
+import edu.kis.powp.jobs2d.command.DrawSmallSquareCommand;
+import edu.kis.powp.jobs2d.command.DrawSquareCommand;
+import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.MyLineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
@@ -29,6 +36,14 @@ public class TestJobs2dPatterns {
 
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", selectTestFigureOptionListener);
+
+		List<DriverCommand> commands=new ArrayList<>();
+		DrawSquareCommand drawSquareCommand = new DrawSquareCommand(DriverFeature.getDriverManager().getCurrentDriver());
+		DrawSmallSquareCommand drawSmallSquareCommand = new DrawSmallSquareCommand(DriverFeature.getDriverManager().getCurrentDriver());
+		commands.add(drawSquareCommand);
+		commands.add(drawSmallSquareCommand);
+		ComplexCommand complexCommand = new ComplexCommand(commands);
+		//todo execute
 	}
 
 	/**
