@@ -5,20 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ComplexCommand implements DriverCommand{
-    private List<DriverCommand> commands;
-//    Job2dDriver driver;
+    private List<DriverCommand> commands = new ArrayList<> ();
 
-    public ComplexCommand(List<DriverCommand> commands) {
-//    public ComplexCommand(List<DriverCommand> commands, Job2dDriver driver) {
-//        this.driver=driver;
-        this.commands = commands;
+    public void add(DriverCommand command) {
+        commands.add(command);
+    }
+    public void remove(DriverCommand command) {
+        commands.remove(command);
+    }
+    public List<DriverCommand> getCommands() {
+        return commands;
     }
 
-
     @Override
-    public void execute() {
+    public void execute(Job2dDriver driver) {
         for (DriverCommand command : commands) {
-            command.execute();
+            command.execute(driver);
         }
     }
 
