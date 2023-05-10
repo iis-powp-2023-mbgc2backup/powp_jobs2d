@@ -10,12 +10,6 @@ public class ComplexCommand implements DriverCommand{
     public void add(DriverCommand command) {
         commands.add(command);
     }
-    public void remove(DriverCommand command) {
-        commands.remove(command);
-    }
-    public List<DriverCommand> getCommands() {
-        return commands;
-    }
 
     @Override
     public void execute(Job2dDriver driver) {
