@@ -5,11 +5,11 @@ import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
 
-public class MyLineDrawerAdapter extends DrawPanelController implements Job2dDriver {
+public class SpecialLineDrawerDriverAdapter extends DrawPanelController implements Job2dDriver {
     private int startX = 0, startY = 0;
 
     private DrawPanelController drawPanelController;
-    public MyLineDrawerAdapter(DrawPanelController drawPanelController) {
+    public SpecialLineDrawerDriverAdapter(DrawPanelController drawPanelController) {
         this.drawPanelController=drawPanelController;
 
 
