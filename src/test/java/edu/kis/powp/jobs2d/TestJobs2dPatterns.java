@@ -10,9 +10,13 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.line.DottedLine;
 import edu.kis.legacy.drawer.shape.line.SpecialLine;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.command.CommandFactory;
+import edu.kis.powp.command.ComplexCommand;
+import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
+import edu.kis.powp.jobs2d.events.SelectComplexKite;
 import edu.kis.powp.jobs2d.events.SelectTestFigureJoe1;
 import edu.kis.powp.jobs2d.events.SelectTestFigureJoe2;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
@@ -31,8 +35,10 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager());
 		SelectTestFigureJoe2 selectTestFigureJoe2 = new SelectTestFigureJoe2(
 				DriverFeature.getDriverManager());
+		SelectComplexKite selectComplexKite = new SelectComplexKite(DriverFeature.getDriverManager());
 		application.addTest("Figure Joe 1", selectTestFigureJoe1);
 		application.addTest("Figure Joe 2", selectTestFigureJoe2);
+		application.addTest("Complex Command", selectComplexKite);
 	}
 
 	/**

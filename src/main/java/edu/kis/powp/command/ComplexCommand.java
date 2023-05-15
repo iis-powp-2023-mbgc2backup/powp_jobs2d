@@ -5,10 +5,14 @@ import java.util.*;
 
 public class ComplexCommand implements DriverCommand{
 
-    private final List<DriverCommand>commands;
+    public final List<DriverCommand>commands;
 
-    public ComplexCommand(List<DriverCommand>commands) {
-        this.commands = commands;
+    public ComplexCommand() {
+        this.commands = new ArrayList<>();
+    }
+
+    public void addCommand(DriverCommand command){
+        commands.add(command);
     }
 
     @Override
