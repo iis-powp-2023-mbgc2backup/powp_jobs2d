@@ -1,12 +1,12 @@
 package edu.kis.powp.command;
 
 public abstract class ComplexCommandFactory {
-    ComplexCommand complexCommand;
+    private ComplexCommand complexCommand;
 
-    public static ComplexCommand getCommand(String type) throws UnsupportedOperationException {
-        if (type.equals("Rectangle"))
+    public static ComplexCommand getCommand(FigureType type) throws UnsupportedOperationException {
+        if (type == FigureType.RECTANGLE)
             return new Rectangle();
-        if (type.equals("Triangle"))
+        if (type == FigureType.TRIANGLE)
             return new Triangle();
 
         throw new UnsupportedOperationException("Only rectangles and triangles!");
