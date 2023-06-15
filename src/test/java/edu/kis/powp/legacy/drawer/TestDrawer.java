@@ -7,7 +7,7 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 
 /**
  * Drawer test.
- * 
+ *
  * @author Dominik
  */
 public class TestDrawer {
