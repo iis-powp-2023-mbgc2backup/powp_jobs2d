@@ -12,7 +12,9 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
 	private int startX = 0, startY = 0;
 
 	private DrawPanelController drawPanelController;
-	public LineDrawerAdapter(DrawPanelController drawPanelController) {
+	private ILine line;
+	public LineDrawerAdapter(DrawPanelController drawPanelController, ILine line) {
+		this.line=line;
 		this.drawPanelController=drawPanelController;
 
 
@@ -26,7 +28,6 @@ public class LineDrawerAdapter extends DrawPanelController implements Job2dDrive
 
 	@Override
 	public void operateTo(int x, int y) {
-		ILine line = LineFactory.getBasicLine();
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
 		setPosition(x,y);
