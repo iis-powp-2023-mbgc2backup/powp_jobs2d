@@ -5,7 +5,7 @@ import java.util.*;
 
 public class ComplexCommand implements DriverCommand{
 
-    public final List<DriverCommand>commands;
+    private final List<DriverCommand>commands;
 
     public ComplexCommand() {
         this.commands = new ArrayList<>();

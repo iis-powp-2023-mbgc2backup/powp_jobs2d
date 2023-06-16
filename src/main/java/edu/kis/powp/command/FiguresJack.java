@@ -8,9 +8,6 @@ import java.util.List;
 
 public class FiguresJack {
 
-    public FiguresJack() {
-    }
-
     public static List<DriverCommand> figureScript1(Job2dDriver driver) {
         List<DriverCommand> commands = new ArrayList<>();
         commands.add(new SetPositionCommand(-120, -120));
