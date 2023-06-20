@@ -10,6 +10,7 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.command.ComplexCommand;
 import edu.kis.powp.command.ComplexCommandFactory;
+import edu.kis.powp.command.FigureType;
 import edu.kis.powp.jobs2d.drivers.adapter.JobsToDrawingAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
@@ -37,16 +38,16 @@ public class TestJobs2dPatterns {
 		// Command
 		application.addTest("Figure Square ", event ->
 		{
-			ComplexCommand command = ComplexCommandFactory.getCommand("Rectangle");
+			ComplexCommand command = ComplexCommandFactory.getCommand(FigureType.RECTANGLE);
 			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
 		});
 		application.addTest("Figure Triangle ", event ->
 		{
-			ComplexCommand command = ComplexCommandFactory.getCommand("Triangle");
+			ComplexCommand command = ComplexCommandFactory.getCommand(FigureType.TRIANGLE);
 			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
 		});
 
-		Job2dDriver dottedDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController());
+		Job2dDriver dottedDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), 2);
 		DriverFeature.addDriver("Dotted Shapes", dottedDriver);
 	}
 
@@ -60,7 +61,7 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver testDriver = new JobsToDrawingAdapter();
+		Job2dDriver testDriver = new JobsToDrawingAdapter(new DrawPanelController());
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 
 		DriverFeature.updateDriverInfo();
