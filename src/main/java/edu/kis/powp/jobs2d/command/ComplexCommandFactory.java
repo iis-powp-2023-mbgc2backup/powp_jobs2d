@@ -14,11 +14,11 @@ public class ComplexCommandFactory {
     public ComplexCommand createRectangle(int x,int y){
         ComplexCommand rectangleCommandList = new ComplexCommand();
 
-        rectangleCommandList.addCommand(new SetPositionCommand(startX, startY,driver));
-        rectangleCommandList.addCommand(new OperateToCommand(startX, startY+y,driver));
-        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY+y,driver));
-        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY,driver));
-        rectangleCommandList.addCommand(new OperateToCommand(startX, startY,driver));
+        rectangleCommandList.addCommand(new SetPositionCommand(startX, startY));
+        rectangleCommandList.addCommand(new OperateToCommand(startX, startY+y));
+        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY+y));
+        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY));
+        rectangleCommandList.addCommand(new OperateToCommand(startX, startY));
 
         return rectangleCommandList;
     }
@@ -26,10 +26,10 @@ public class ComplexCommandFactory {
     public ComplexCommand createTriangle(int x,int y){
         ComplexCommand rectangleCommandList = new ComplexCommand();
 
-        rectangleCommandList.addCommand(new SetPositionCommand(startX, startY,driver));
-        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY+y,driver));
-        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY,driver));
-        rectangleCommandList.addCommand(new OperateToCommand(startX, startY,driver));
+        rectangleCommandList.addCommand(new SetPositionCommand(startX, startY));
+        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY+y));
+        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY));
+        rectangleCommandList.addCommand(new OperateToCommand(startX, startY));
 
         return rectangleCommandList;
     }
