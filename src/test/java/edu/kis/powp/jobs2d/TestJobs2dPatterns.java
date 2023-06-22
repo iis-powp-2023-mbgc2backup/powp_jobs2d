@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.command.ComplexCommand;
 import edu.kis.powp.command.ComplexCommandFactory;
@@ -47,7 +48,7 @@ public class TestJobs2dPatterns {
 			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
 		});
 
-		Job2dDriver dottedDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), 2);
+		Job2dDriver dottedDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), LineFactory.getBasicLine());
 		DriverFeature.addDriver("Dotted Shapes", dottedDriver);
 	}
 
