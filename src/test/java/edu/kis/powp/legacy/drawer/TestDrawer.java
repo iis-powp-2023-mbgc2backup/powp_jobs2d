@@ -14,6 +14,7 @@ public class TestDrawer {
 	/**
 	 * Drawer test.
 	 */
+	// Todo UML
 	public static void main(String[] args) {
 		DrawPanelController controller = new DrawPanelController();
 		DefaultDrawerFrame.getDefaultDrawerFrame().setVisible(true);
