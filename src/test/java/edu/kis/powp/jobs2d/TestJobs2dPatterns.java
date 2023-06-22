@@ -10,9 +10,9 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.AddIntoWindowAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -25,10 +25,10 @@ public class TestJobs2dPatterns {
 	private static void setupPresetTests(Application application) {
 		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
 				DriverFeature.getDriverManager(), 1);
-		application.addTest("Figure Joe 1", new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), 1));
-		application.addTest("Figure Joe 2", new SelectTestFigureOptionListener(DriverFeature.getDriverManager(), 2));
-		application.addTest("SQUARE", selectTestFigureOptionListener);
-		application.addTest("TRIANGLE", selectTestFigureOptionListener);
+		application.addTest(Constants.figure1, selectTestFigureOptionListener);
+		application.addTest(Constants.figure2, selectTestFigureOptionListener);
+		application.addTest(Constants.figureSquare, selectTestFigureOptionListener);
+		application.addTest(Constants.figureTriangle, selectTestFigureOptionListener);
 	}
 
 	/**

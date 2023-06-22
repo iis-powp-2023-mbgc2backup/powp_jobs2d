@@ -6,31 +6,29 @@ public class ComplexCommandFactory {
     private int startX;
     private int startY;
     private Job2dDriver driver;
-    public ComplexCommandFactory(Job2dDriver driver, int x, int y){
+    public ComplexCommandFactory(Job2dDriver driver){
         this.driver = driver;
-        this.startX = x;
-        this.startY = y;
     }
     public ComplexCommand createRectangle(int x,int y){
         ComplexCommand rectangleCommandList = new ComplexCommand();
 
-        rectangleCommandList.addCommand(new SetPositionCommand(startX, startY));
-        rectangleCommandList.addCommand(new OperateToCommand(startX, startY+y));
-        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY+y));
-        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY));
-        rectangleCommandList.addCommand(new OperateToCommand(startX, startY));
-
+        rectangleCommandList.addCommand(new SetPositionCommand(x, y));
+        rectangleCommandList.addCommand(new OperateToCommand(x, y+40));
+        rectangleCommandList.addCommand(new OperateToCommand(x+40, y+40));
+        rectangleCommandList.addCommand(new OperateToCommand(x+40, y));
+        rectangleCommandList.addCommand(new OperateToCommand(x, y));
+        rectangleCommandList.execute(driver);
         return rectangleCommandList;
     }
 
     public ComplexCommand createTriangle(int x,int y){
         ComplexCommand rectangleCommandList = new ComplexCommand();
 
-        rectangleCommandList.addCommand(new SetPositionCommand(startX, startY));
-        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY+y));
-        rectangleCommandList.addCommand(new OperateToCommand(startX+x, startY));
-        rectangleCommandList.addCommand(new OperateToCommand(startX, startY));
-
+        rectangleCommandList.addCommand(new SetPositionCommand(x, y));
+        rectangleCommandList.addCommand(new OperateToCommand(x+40, y+40));
+        rectangleCommandList.addCommand(new OperateToCommand(x+40, y));
+        rectangleCommandList.addCommand(new OperateToCommand(x, y));
+        rectangleCommandList.execute(driver);
         return rectangleCommandList;
     }
 }
