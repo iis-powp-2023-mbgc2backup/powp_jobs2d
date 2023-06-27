@@ -8,8 +8,10 @@ import java.util.logging.Logger;
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.jobs2d.command.DriverCommand;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
+import edu.kis.powp.jobs2d.drivers.fabrics.FigureFactory;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
@@ -32,6 +34,18 @@ public class TestJobs2dPatterns {
 		application.addTest("Figure Joe 2", actionEvent -> FiguresJoe.figureScript2(
 				DriverFeature.getDriverManager().getCurrentDriver()
 		));
+		application.addTest("Figure Square", event -> {
+			DriverCommand command = FigureFactory.getSquare();
+			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
+		});
+		application.addTest("Figure Rectangle", event -> {
+			DriverCommand command = FigureFactory.getRectangle();
+			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
+		});
+		application.addTest("Figure Triangle", event -> {
+			DriverCommand command = FigureFactory.getTriangle();
+			command.execute(DriverFeature.getDriverManager().getCurrentDriver());
+		});
 	}
 
 	/**
