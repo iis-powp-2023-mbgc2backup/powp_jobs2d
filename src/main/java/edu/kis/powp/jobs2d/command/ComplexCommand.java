@@ -13,10 +13,12 @@ public class ComplexCommand implements DriverCommand {
     }
 
     public ComplexCommand(List<DriverCommand> commands) {
-        if (commands != null)
+        if (commands != null) {
+            this.commands = new ArrayList<>();
             for (DriverCommand command : commands)
                 if (command != null)
                     this.commands.add(command);
+        }
         else
             this.commands = new ArrayList<>();
     }
