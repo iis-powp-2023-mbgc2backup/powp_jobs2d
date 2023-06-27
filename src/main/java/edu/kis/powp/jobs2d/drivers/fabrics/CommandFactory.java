@@ -1,8 +1,8 @@
 package edu.kis.powp.jobs2d.drivers.fabrics;
 
 import edu.kis.powp.jobs2d.Job2dDriver;
-import edu.kis.powp.jobs2d.drivers.command.ComplexCommand;
-import edu.kis.powp.jobs2d.drivers.command.SetPositionCommand;
+import edu.kis.powp.jobs2d.command.ComplexCommand;
+import edu.kis.powp.jobs2d.command.SetPositionCommand;
 
 public class CommandFactory {
 
