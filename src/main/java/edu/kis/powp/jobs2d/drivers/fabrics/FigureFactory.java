@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class FigureFactory {
 
-    public static ComplexCommand getSquare() {
+    public static DriverCommand getSquare() {
         return new ComplexCommand(
                 new ArrayList<DriverCommand>() {{
                     add(new SetPositionCommand(0, 0));
@@ -22,7 +22,7 @@ public class FigureFactory {
         );
     }
 
-    public static ComplexCommand getTriangle() {
+    public static DriverCommand getTriangle() {
         return new ComplexCommand(
                 new ArrayList<DriverCommand>() {{
                     add(new SetPositionCommand(25, 0));
@@ -33,7 +33,7 @@ public class FigureFactory {
         );
     }
 
-    public static ComplexCommand getRectangle() {
+    public static DriverCommand getRectangle() {
         return new ComplexCommand(
                 new ArrayList<DriverCommand>() {{
                     add(new SetPositionCommand(0, 0));
