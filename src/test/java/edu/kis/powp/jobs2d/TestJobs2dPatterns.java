@@ -27,14 +27,26 @@ public class TestJobs2dPatterns {
 	 * @param application Application context.
 	 */
 	private static void setupPresetTests(Application application) {
-		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager()
+		SelectTestFigureOptionListener figure1OptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), FigureType.FIGURE1
 		);
-		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
-		application.addTest("Figure Joe 2", selectTestFigureOptionListener);
-		application.addTest("Figure Square", selectTestFigureOptionListener);
-		application.addTest("Figure Rectangle", selectTestFigureOptionListener);
-		application.addTest("Figure Triangle", selectTestFigureOptionListener);
+		SelectTestFigureOptionListener figure2OptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), FigureType.FIGURE2
+		);
+		SelectTestFigureOptionListener squareOptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), FigureType.SQUARE
+		);
+		SelectTestFigureOptionListener rectangleOptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), FigureType.RECTANGLE
+		);
+		SelectTestFigureOptionListener triangleOptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), FigureType.TRIANGLE
+		);
+		application.addTest("Figure Joe 1", figure1OptionListener);
+		application.addTest("Figure Joe 2", figure2OptionListener);
+		application.addTest("Figure Square", squareOptionListener);
+		application.addTest("Figure Rectangle", rectangleOptionListener);
+		application.addTest("Figure Triangle", triangleOptionListener);
 	}
 
 	/**
