@@ -13,7 +13,7 @@ public class LineDrawerAdapter implements Job2dDriver {
     }
     private int startX, startY;
     private final DrawPanelController controller;
-    private LineType lineType = LineType.BASIC;
+    private LineType lineType = LineType.DOTTED;
 
     public void setLineType(LineType type) {
         this.lineType = type;
