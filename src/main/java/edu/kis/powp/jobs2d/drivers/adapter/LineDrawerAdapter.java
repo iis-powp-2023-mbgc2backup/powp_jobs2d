@@ -13,7 +13,14 @@ public class LineDrawerAdapter implements Job2dDriver {
     }
     private int startX, startY;
     private final DrawPanelController controller;
-    private LineType lineType = LineType.DOTTED;
+    private final LineType lineType;
+
+    public LineDrawerAdapter(DrawPanelController controller, LineType type) {
+        this.startX = 0;
+        this.startY = 0;
+        this.controller = controller;
+        this.lineType = type;
+    }
 
     public ILine getLineType() {
         switch (this.lineType) {
@@ -24,13 +31,6 @@ public class LineDrawerAdapter implements Job2dDriver {
             default:
                 return LineFactory.getSpecialLine();
         }
-    }
-
-    public LineDrawerAdapter(DrawPanelController controller, LineType type) {
-        this.startX = 0;
-        this.startY = 0;
-        this.controller = controller;
-        this.lineType = type;
     }
 
     @Override
