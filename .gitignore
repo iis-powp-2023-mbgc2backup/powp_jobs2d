@@ -1,5 +1,7 @@
 /target/
 /doc/
+/.idea
 /.classpath
 /.project
 .settings
+/.vscode
