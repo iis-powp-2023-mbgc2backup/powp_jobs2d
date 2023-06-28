@@ -15,10 +15,6 @@ public class LineDrawerAdapter implements Job2dDriver {
     private final DrawPanelController controller;
     private LineType lineType = LineType.DOTTED;
 
-    public void setLineType(LineType type) {
-        this.lineType = type;
-    }
-
     public ILine getLineType() {
         switch (this.lineType) {
             case BASIC:
@@ -30,10 +26,11 @@ public class LineDrawerAdapter implements Job2dDriver {
         }
     }
 
-    public LineDrawerAdapter(DrawPanelController controller) {
+    public LineDrawerAdapter(DrawPanelController controller, LineType type) {
         this.startX = 0;
         this.startY = 0;
         this.controller = controller;
+        this.lineType = type;
     }
 
     @Override
