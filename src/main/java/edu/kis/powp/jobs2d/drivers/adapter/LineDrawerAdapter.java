@@ -7,8 +7,28 @@ import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 
 public class LineDrawerAdapter implements Job2dDriver {
+
+    public enum LineType {
+        BASIC, DOTTED, SPECIAL
+    }
     private int startX, startY;
     private final DrawPanelController controller;
+    private LineType lineType = LineType.BASIC;
+
+    public void setLineType(LineType type) {
+        this.lineType = type;
+    }
+
+    public ILine getLineType() {
+        switch (this.lineType) {
+            case BASIC:
+                return LineFactory.getBasicLine();
+            case DOTTED:
+                return LineFactory.getDottedLine();
+            default:
+                return LineFactory.getSpecialLine();
+        }
+    }
 
     public LineDrawerAdapter(DrawPanelController controller) {
         this.startX = 0;
@@ -24,8 +44,8 @@ public class LineDrawerAdapter implements Job2dDriver {
 
     @Override
     public void operateTo(int x, int y) {
-        ILine line = LineFactory.getSpecialLine();
-        line.setEndCoordinates(this.startX, this.startY);
+        ILine line = getLineType();
+        line.setStartCoordinates(this.startX, this.startY);
         line.setEndCoordinates(x, y);
         setPosition(x, y);
         this.controller.drawLine(line);
